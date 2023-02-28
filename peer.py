@@ -78,31 +78,29 @@ if __name__ == "__main__":
         "--server-port",
         type=int,
         help="the port number to listen on for incoming connections",
+        required=True,
     )
     parser.add_argument(
         "-p1",
         "--peer1-port",
         type=int,
         help="the port number to connect to for the first peer",
+        required=True,
     )
     parser.add_argument(
         "-p2",
         "--peer2-port",
         type=int,
         help="the port number to connect to for the second peer",
+        required=True,
     )
     args = parser.parse_args()
 
-    # Start the server thread if server port is specified
-    if args.server_port:
-        server_thread = threading.Thread(target=server)
-        server_thread.start()
+    server_thread = threading.Thread(target=server)
+    server_thread.start()
 
-    # Start the client threads if peer ports are specified
-    if args.peer1_port:
-        client1_thread = threading.Thread(target=client, args=(args.peer1_port,))
-        client1_thread.start()
+    client1_thread = threading.Thread(target=client, args=(args.peer1_port,))
+    client1_thread.start()
 
-    if args.peer2_port:
-        client2_thread = threading.Thread(target=client, args=(args.peer2_port,))
-        client2_thread.start()
+    client2_thread = threading.Thread(target=client, args=(args.peer2_port,))
+    client2_thread.start()
