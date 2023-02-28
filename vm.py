@@ -1,5 +1,6 @@
 import random
 import time
+import sys
 import socket
 
 class LogicalClock:
@@ -86,9 +87,34 @@ class VirtualMachine:
             
 if __name__ == "__main__":
     # Initialize virtual machines
-    vm1 = VirtualMachine(0, random.randint(1, 6), [("localhost", 8001), ("localhost", 8002)])
-    vm2 = VirtualMachine(1, random.randint(1, 6), [("localhost", 8000), ("localhost", 8002)])
-    vm3 = VirtualMachine(2, random.randint(1, 6), [("localhost", 8000), ("localhost", 8001)])
+    # vm1 = VirtualMachine(0, random.randint(1, 6), [("localhost", 8001), ("localhost", 8002)])
+    # vm2 = VirtualMachine(1, random.randint(1, 6), [("localhost", 8000), ("localhost", 8002)])
+    # vm3 = VirtualMachine(2, random.randint(1, 6), [("localhost", 8000), ("localhost", 8001)])
+    
+    # take in a command line flag for the port number
+    port = int(sys.argv[1])
+    
+    # Create a socket object
+    s = socket.socket()
+    
+    # Bind to the port
+    s.bind(('', port))
+    
+    # queue up to 5 requests
+    s.listen(5)
+    
+    while True:
+        # Establish connection with client.
+        c, addr = s.accept()
+    
+        # Receive message from client
+        message = c.recv(1024)
+    
+        # Close the connection with the client
+        c.close()
+        
+        # Add message to queue
+        vm1.queue.append(message)
     
     # Start virtual machines
     vm1.start()
