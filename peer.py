@@ -2,9 +2,10 @@ import argparse
 import socket
 import threading
 import time
+import queue
 
 # Define the server function to listen on the specified port
-def server():
+def server(q):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -26,6 +27,9 @@ def server():
         data = conn.recv(1024).decode()
         print("Received from client:", data)
 
+        # Add the message to the queue
+        q.put(data)
+
         # Send a response to the client
         message = f"Hello, client! from {port}"
         conn.send(message.encode())
@@ -35,7 +39,7 @@ def server():
 
 
 # Define the client function to connect to the specified port
-def client(port):
+def client(port, q):
     connected = False
     while not connected:
         # Create a socket object
@@ -57,6 +61,9 @@ def client(port):
             # Receive a message from the peer
             data = s.recv(1024).decode()
             print("Received from peer:", data)
+
+            # Add the message to the queue
+            q.put(data)
 
             # Close the connection
             s.close()
@@ -96,11 +103,20 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    server_thread = threading.Thread(target=server)
+    # Create a message queue to store messages from clients
+    message_queue = queue.Queue()
+
+    # Start the server thread
+    server_thread = threading.Thread(target=server, args=(message_queue,))
     server_thread.start()
 
-    client1_thread = threading.Thread(target=client, args=(args.peer1_port,))
+    # Start the client threads
+    client1_thread = threading.Thread(
+        target=client, args=(args.peer1_port, message_queue)
+    )
     client1_thread.start()
 
-    client2_thread = threading.Thread(target=client, args=(args.peer2_port,))
+    client2_thread = threading.Thread(
+        target=client, args=(args.peer2_port, message_queue)
+    )
     client2_thread.start()
