@@ -34,7 +34,7 @@ def server():
         print('Received from client:', data)
 
         # Send a response to the client
-        message = 'Hello, client!'
+        message = f'Hello, client! from {port}'
         conn.send(message.encode())
 
         # Close the connection
@@ -42,7 +42,8 @@ def server():
 
 # Define the client function to connect to the specified port
 def client(port):
-    while True:
+    connected = False
+    while not connected:
         # Create a socket object
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -52,6 +53,7 @@ def client(port):
         # Connect to the peer
         try:
             s.connect((host, port))
+            connected = True
             print('Connected to', host, 'on port', port)
 
             # Send a message to the peer
@@ -66,12 +68,12 @@ def client(port):
             s.close()
 
             # Wait for 1 second before trying again
-            time.sleep(1)
+            time.sleep(5)
         except ConnectionRefusedError:
             print('Connection refused on port', port)
 
             # Wait for 1 second before trying again
-            time.sleep(1)
+            time.sleep(5)
 
 # Start the server thread if server port is specified
 if args.server_port:
