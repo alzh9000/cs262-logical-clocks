@@ -1,7 +1,11 @@
 # Spec
 Scale Models and Logical Clocks
 Due Sunday by 11:59pm Points 20 Submitting a website url or a file upload Available after Feb 27 at 2pm
-In this assignment, you and your partner will build a model of a small, asynchronous distributed system. It will run on a single machine, but you will model multiple machines running at different speeds. And you will build a logical clock for each of the model machines.
+In this assignment, you and your partner will build a model of a small, asynchronous distributed system. It will run on a single machine, but you will model multiple machines running at different speeds. 
+Multiple processes connecting using sockets
+
+
+And you will build a logical clock for each of the model machines.
 
 Each model machine will run at a clock rate determined during initialization. You will pick a random number between 1 and 6, and that will be the number of clock ticks per (real world) second for that machine. This means that only that many instructions can be performed by the machine during that time. Each machine will also have a network queue (which is not constrained to the n operations per second) in which it will hold incoming messages. The (virtual) machine should listen on one or more sockets for such messages.
 
