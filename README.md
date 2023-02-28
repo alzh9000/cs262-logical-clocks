@@ -1,3 +1,8 @@
+# Usage
+python peer.py -s 11111 -p1 22222 -p2 33333
+python peer.py -s 22222 -p1 33333 -p2 11111
+python peer.py -s 33333 -p1 22222 -p2 11111
+
 # Spec
 Scale Models and Logical Clocks
 Due Sunday by 11:59pm Points 20 Submitting a website url or a file upload Available after Feb 27 at 2pm
