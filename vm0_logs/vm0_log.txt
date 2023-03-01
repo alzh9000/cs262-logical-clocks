@@ -1,0 +1,36 @@
+Sent message Initialization message from 0 at 1677698557.228034 with logical clock 1
+Sent message Initialization message from 0 at 1677698557.228197 with logical clock 1
+No message received at 1677698557.22827 with logical clock 1
+Received message Initialization message from 0 at 1677698557.2283142 with logical clock 2
+Received message Initialization message from 0 at 1677698557.2283351 with logical clock 3
+Sent message 3 from 0 at 1677698557.228411 with logical clock 4
+Received message 6 from 2 at 1677698558.2309198 with logical clock 7
+Received message Initialization message from 2 at 1677698558.231012 with logical clock 8
+No message received at 1677698558.2310631 with logical clock 9
+Internal event occurred at 1677698558.2311099 with logical clock 10
+Received message 10 from 2 at 1677698559.235042 with logical clock 11
+No message received at 1677698559.235116 with logical clock 12
+No message received at 1677698559.2352152 with logical clock 13
+Sent message 13 from 1 at 1677698559.2353861 with logical clock 14
+Sent message 14 from 2 at 1677698559.2354 with logical clock 15
+No message received at 1677698560.23725 with logical clock 16
+No message received at 1677698560.237343 with logical clock 17
+No message received at 1677698560.237417 with logical clock 18
+Sent message 18 from 1 at 1677698560.237499 with logical clock 19
+No message received at 1677698561.242657 with logical clock 20
+No message received at 1677698561.2426891 with logical clock 21
+No message received at 1677698561.24271 with logical clock 22
+Sent message 22 from 1 at 1677698561.242744 with logical clock 23
+Sent message 23 from 2 at 1677698561.242748 with logical clock 24
+No message received at 1677698562.2474968 with logical clock 25
+No message received at 1677698562.247544 with logical clock 26
+No message received at 1677698562.247568 with logical clock 27
+Internal event occurred at 1677698562.2475772 with logical clock 28
+No message received at 1677698563.248061 with logical clock 29
+No message received at 1677698563.248093 with logical clock 30
+No message received at 1677698563.2481139 with logical clock 31
+Internal event occurred at 1677698563.248123 with logical clock 32
+Received message 36 from 2 at 1677698564.255894 with logical clock 37
+No message received at 1677698564.2559738 with logical clock 38
+No message received at 1677698564.2560189 with logical clock 39
+Sent message 39 from 0 at 1677698564.256089 with logical clock 40
