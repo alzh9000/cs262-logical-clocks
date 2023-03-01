@@ -134,3 +134,5 @@ if __name__ == "__main__":
     p0.join()
     p1.join()
     p2.join()
+
+# TODO: make each process wait the correct fraction of a second based on randomization. check if we can use pipes or multiprocessing.
