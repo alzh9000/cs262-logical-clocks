@@ -55,7 +55,7 @@ def client(port, q):
             print("Connected to", host, "on port", port)
 
             # Send a message to the peer
-            message = "Hello, peer!"
+            message = f"Hello, peer! from {args.server_port}"
             s.send(message.encode())
 
             # Receive a message from the peer
