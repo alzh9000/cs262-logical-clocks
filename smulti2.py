@@ -84,13 +84,12 @@ def client(to_id, q, from_id, sockets_dict):
             message = f"Hello, peer! from {PORTS[from_id]}"
             s.send(message.encode())
 
-            while True:
-                # Receive a message from the peer
-                data = s.recv(1024).decode()
-                print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
+            # # Receive a message from the peer
+            # data = s.recv(1024).decode()
+            # print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
 
-                # Add the message to the queue
-                q.put(data)
+            # # Add the message to the queue
+            # q.put(data)
 
             # # Close the connection
             # s.close()
@@ -151,12 +150,13 @@ def virtual_machine(socks, id):
     )
     client2_thread.start()
 
-    time.sleep(5)
+    time.sleep(3)
     print(sockets_dict)
     s = sockets_dict[(from_id, (from_id + 1) % 3)]
     message = f"HEYY Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
+    time.sleep(0.1)
     message = f"BROOO Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
