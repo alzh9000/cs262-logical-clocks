@@ -49,6 +49,7 @@ def server(q):
         conn.send(message.encode())
 
         # Close the connection
+        print("CLOSING CONNECTION")
         conn.close()
 
 
@@ -86,13 +87,13 @@ def client(port, q):
             # s.close()
 
             # Wait for 1 second before trying again
-            time.sleep(5)
+            time.sleep(1)
             # s.connect((host, port))
             connected = True
             print("Connected to", host, "on port", port)
 
             # Send a message to the peer
-            message = f"SUGMA Hello, peer! from {args.server_port}"
+            message = f"LIT LIT Hello, peer! from {args.server_port}"
             s.send(message.encode())
 
             # Receive a message from the peer
@@ -103,7 +104,12 @@ def client(port, q):
             q.put(data)
 
             # Close the connection
-            s.close()
+            while True:
+                message = f"LITTY Hello, peer! from {args.server_port}"
+                s.send(message.encode())
+                time.sleep(1)
+            s.send(message.encode())
+            # s.close()
 
         except ConnectionRefusedError:
             print("Connection refused on port", port)

@@ -23,6 +23,8 @@ PORTS = [50000, 50001, 50002]
 def server(port, q, from_id):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # Set the SO_REUSEADDR option
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     # Bind the socket to a port
     host = "localhost"
@@ -39,18 +41,23 @@ def server(port, q, from_id):
         print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
 
         # Receive data from the client
-        data = conn.recv(1024).decode()
-        print(COLORS[from_id] + "Received from client:", data, "" + RESET)
+        while True:
+            data = conn.recv(1024).decode()
+            if not data:
+                print("breaking connection")
+                break
 
-        # Add the message to the queue
-        q.put(data)
+            print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
-        # Send a response to the client
-        message = f"Hello, client! from {port}"
-        conn.send(message.encode())
+            # Add the message to the queue
+            q.put(data)
+
+            # Send a response to the client
+            message = f"Hello, client! from {port}"
+            conn.send(message.encode())
 
         # Close the connection
-        # conn.close()
+        conn.close()
 
 
 # Define the client function to connect to the specified port
@@ -60,6 +67,8 @@ def client(to_id, q, from_id, sockets_dict):
     while not connected:
         # Create a socket object
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # Set the SO_REUSEADDR option
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         # Define the IP address to connect to
         host = "localhost"
@@ -89,9 +98,9 @@ def client(to_id, q, from_id, sockets_dict):
             # Wait for 1 second before trying again
             time.sleep(1)
 
-            # while True:
-            #     # keep socket open
-            #     pass
+            while True:
+                # keep socket open
+                pass
 
         except ConnectionRefusedError:
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
@@ -142,10 +151,10 @@ def virtual_machine(socks, id):
     )
     client2_thread.start()
 
-    time.sleep(10)
+    time.sleep(5)
     print(sockets_dict)
     s = sockets_dict[(from_id, (from_id + 1) % 3)]
-    message = f"Hello, {(from_id + 1) % 3}! from {from_id}"
+    message = f"HEYY Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
     # # Try to connect to the other virtual machines
