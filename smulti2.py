@@ -256,7 +256,7 @@ def send_message(sock, msg, logical_clock, log_file):
     # update the log with the send, the system time, and the logical clock time
     global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
     log_file.write(
-        f"Sent message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
+        f"Sent message {msg} at global UTC time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
     )
     # Return the updated logical clock value
     return logical_clock
@@ -309,7 +309,7 @@ def process_events(
         # Write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time.
         global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
         log_file.write(
-            f"Received message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}. The length of the message queue remaining is {message_queue.qsize()}\n"
+            f"Received message {msg} at global UTC time (gotten from the system) {global_time_string} with logical clock time {logical_clock}. The length of the message queue remaining is {message_queue.qsize()}\n"
         )
     else:
         # If there is no message in the queue, the virtual machine should generate a random number in the range of 1-10
@@ -343,7 +343,7 @@ def process_events(
             logical_clock += 1
             global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
             log_file.write(
-                f"Internal event occurred at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
+                f"Internal event occurred at global UTC time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
             )
 
     # TODO: check this works
