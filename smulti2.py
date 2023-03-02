@@ -238,8 +238,8 @@ def virtual_machine(id, experiment_start_time, clock_rate):
             sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
         )
 
+        time_so_far = time.time() - experiment_start_time
         # Used for debugging and testing purposes. TODO: can remove later
-        # time_so_far = time.time() - experiment_start_time
         # print(
         #     COLORS[from_id] + "",
         #     f"It has been {time_so_far} seconds so far",
