@@ -223,35 +223,6 @@ def send_message(sock, msg, logical_clock, log_file):
     return logical_clock
 
 
-# # Define a function to receive a message from another virtual machine
-# def receive_message(sock, logical_clock, log_file, q):
-#     # Try to receive a message from the other virtual machine
-#     # try:
-#     # get an item from the queue if it's not empty
-#     if not message_queue.empty():
-#         item = message_queue.get()
-#         print(item)
-#         # Receive the message and decode it
-#         # TODO
-#         # msg = sock.recv(1024).decode()
-#         msg = message_queue.get()
-#         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
-#         sender_clock = int(msg.split()[1])
-#         logical_clock = max(logical_clock, sender_clock) + 1
-#         # Write a log entry for the received message
-#         log_file.write(
-#             f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
-#         )
-#     # # If there was an error receiving the message, just increment the local logical clock value and write a log entry for no message being received
-#     # except socket.error:
-#     #     logical_clock += 1
-#     #     log_file.write(
-#     #         f"No message received at {time.time()} with logical clock {logical_clock}\n"
-#     #     )
-#     # Return the updated logical clock value
-#     return logical_clock
-
-
 # Define a function to generate events and update the logical clock accordingly
 def process_events(
     sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
