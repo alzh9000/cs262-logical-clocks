@@ -84,12 +84,13 @@ def client(to_id, q, from_id, sockets_dict):
             message = f"Hello, peer! from {PORTS[from_id]}"
             s.send(message.encode())
 
-            # Receive a message from the peer
-            data = s.recv(1024).decode()
-            print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
+            while True:
+                # Receive a message from the peer
+                data = s.recv(1024).decode()
+                print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
 
-            # Add the message to the queue
-            q.put(data)
+                # Add the message to the queue
+                q.put(data)
 
             # # Close the connection
             # s.close()
