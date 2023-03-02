@@ -1,6 +1,0 @@
-Sent message Initialization message from 0 at 1677698948.424854 with logical clock 1
-Sent message Initialization message from 0 at 1677698956.561252 with logical clock 1
-No message received at 1677698981.0416 with logical clock 1
-Received message Initialization message from 0 at 1677698987.2519512 with logical clock 2
-Received message Initialization message from 0 at 1677698990.449936 with logical clock 3
-Sent message 3 from 1 at 1677699006.1672351 with logical clock 4

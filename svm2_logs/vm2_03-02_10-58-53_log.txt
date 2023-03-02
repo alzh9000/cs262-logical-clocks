@@ -1,3 +1,0 @@
-Sent message Initialization message at 1677772740.9554062 with logical clock 1
-Sent message Initialization message at 1677772740.955441 with logical clock 2
-Internal event occurred at 1677772741.565718 with logical clock 3
