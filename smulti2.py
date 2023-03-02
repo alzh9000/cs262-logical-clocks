@@ -5,6 +5,7 @@ import time
 import random
 import os
 import multiprocessing
+from datetime import datetime
 
 # Define terminal color codes
 COLORS = {
@@ -232,25 +233,18 @@ def virtual_machine(id, experiment_start_time, clock_rate):
     # Run for 120 seconds. TODO: we could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
     time_so_far = time.time() - experiment_start_time
     while time_so_far < 120:
-        # # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
-        # logical_clock = receive_message(
-        #     next_sock, logical_clock, log_file, message_queue
-        # )
-        # logical_clock = receive_message(
-        #     prev_sock, logical_clock, log_file, message_queue
-        # )
-        # Generate events and update the logical clock value based on the outcome of the events
+        # On each clock cycle, perform functionality and update logical clock.
         logical_clock = process_events(
             sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
         )
-        # # Wait for one second before checking for messages and generating events again
-        # time.sleep(1)
-        time_so_far = time.time() - experiment_start_time
-        print(
-            COLORS[from_id] + "",
-            f"It has been {time_so_far} seconds so far",
-            "" + RESET,
-        )
+
+        # Used for debugging and testing purposes. TODO: can remove later
+        # time_so_far = time.time() - experiment_start_time
+        # print(
+        #     COLORS[from_id] + "",
+        #     f"It has been {time_so_far} seconds so far",
+        #     "" + RESET,
+        # )
 
 
 # Define a function to send a message to another virtual machine
@@ -260,7 +254,7 @@ def send_message(sock, msg, logical_clock, log_file):
     # update it’s own logical clock
     logical_clock += 1
     # update the log with the send, the system time, and the logical clock time
-    global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
+    global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
     log_file.write(
         f"Sent message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
     )
@@ -313,7 +307,7 @@ def process_events(
         logical_clock = max(logical_clock, sender_clock) + 1
         # TODO: @gianni @angelloghernan for ur analysis, it might be easier to log to a CSV or parse this text output. it's not required by spec but might be easier for you
         # Write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time.
-        global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
+        global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
         log_file.write(
             f"Received message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}. The length of the message queue remaining is {message_queue.qsize()}\n"
         )
@@ -347,7 +341,7 @@ def process_events(
         # if the value is other than 1-3, treat the cycle as an internal event; update the local logical clock, and log the internal event, the system time, and the logical clock value.
         else:
             logical_clock += 1
-            global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
+            global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
             log_file.write(
                 f"Internal event occurred at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
             )
