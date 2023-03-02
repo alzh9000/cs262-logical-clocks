@@ -24,15 +24,21 @@ def server(q):
         print("Accepted connection from", addr)
 
         # Receive data from the client
-        data = conn.recv(1024).decode()
-        print("Received from client:", data)
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            print(f"Received: {data.decode()}")
+        # # Receive data from the client
+        # data = conn.recv(1024).decode()
+        # print("Received from client:", data)
 
-        # Add the message to the queue
-        q.put(data)
+        # # Add the message to the queue
+        # q.put(data)
 
-        # Send a response to the client
-        message = f"Hello, client! from {port}"
-        conn.send(message.encode())
+        # # Send a response to the client
+        # message = f"Hello, client! from {port}"
+        # conn.send(message.encode())
 
         # Close the connection
         conn.close()
@@ -65,11 +71,29 @@ def client(port, q):
             # Add the message to the queue
             q.put(data)
 
-            # Close the connection
-            s.close()
+            # # Close the connection
+            # s.close()
 
             # Wait for 1 second before trying again
             time.sleep(5)
+            # s.connect((host, port))
+            connected = True
+            print("Connected to", host, "on port", port)
+
+            # Send a message to the peer
+            message = f"SUGMA Hello, peer! from {args.server_port}"
+            s.send(message.encode())
+
+            # Receive a message from the peer
+            data = s.recv(1024).decode()
+            print("Received from peer:", data)
+
+            # Add the message to the queue
+            q.put(data)
+
+            # Close the connection
+            s.close()
+
         except ConnectionRefusedError:
             print("Connection refused on port", port)
 
