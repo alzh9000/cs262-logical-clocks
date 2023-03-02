@@ -5,8 +5,8 @@ import os
 import multiprocessing
 
 # Define the IP address and port numbers to use for the virtual machines
-IP_ADDRESS = "127.0.0.1"
-PORTS = [30000, 30001, 30002]
+IP_ADDRESS = "localhost"
+PORTS = [50000, 50001, 50002]
 
 # Define a function to simulate a virtual machine
 def virtual_machine(socks, id):
@@ -128,25 +128,28 @@ def process_events(socks, logical_clock, log_file, id):
     return logical_clock
 
 
-# Create a list to hold the sockets for each virtual machine
-socks = []
+if __name__ == "__main__":
+    # Create a list to hold the sockets for each virtual machine
+    socks = []
 
-# Create a socket for each virtual machine and add it to the list
-for port in PORTS:
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind((IP_ADDRESS, port))
-    sock.listen()
-    socks.append(sock)
+    # Create a socket for each virtual machine and add it to the list
+    for port in PORTS:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.bind((IP_ADDRESS, port))
+        sock.listen()
+        socks.append(sock)
 
-# Create a process for each virtual machine
-processes = []
-for id in range(3):
-    processes.append(multiprocessing.Process(target=virtual_machine, args=(socks, id)))
+    # Create a process for each virtual machine
+    processes = []
+    for id in range(3):
+        processes.append(
+            multiprocessing.Process(target=virtual_machine, args=(socks, id))
+        )
 
-# Start each process
-for process in processes:
-    process.start()
+    # Start each process
+    for process in processes:
+        process.start()
 
-# Wait for each process to finish
-for process in processes:
-    process.join()
+    # Wait for each process to finish
+    for process in processes:
+        process.join()
