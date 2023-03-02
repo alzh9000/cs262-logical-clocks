@@ -225,12 +225,13 @@ def virtual_machine(id, experiment_start_time, clock_rate):
     while not message_queue.empty():
         print(COLORS[from_id] + "", message_queue.get(), "" + RESET)
 
-    print(f"Logical clock value: {logical_clock}")
+    # print(f"Logical clock value: {logical_clock}")
 
     time.sleep(0.4)
     # Main loop for the virtual machine
     # Run for 120 seconds. TODO: we could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
-    while time.time() - experiment_start_time < 120:
+    time_so_far = time.time() - experiment_start_time
+    while time_so_far < 120:
         # # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
         # logical_clock = receive_message(
         #     next_sock, logical_clock, log_file, message_queue
@@ -244,6 +245,12 @@ def virtual_machine(id, experiment_start_time, clock_rate):
         )
         # # Wait for one second before checking for messages and generating events again
         # time.sleep(1)
+        time_so_far = time.time() - experiment_start_time
+        print(
+            COLORS[from_id] + "",
+            f"It has been {time_so_far} seconds so far",
+            "" + RESET,
+        )
 
 
 # Define a function to send a message to another virtual machine
@@ -295,17 +302,18 @@ def process_events(
     # Track how long this function takes to run so we know how long to wait before running it again to maintain the desired clock rate better
     start_time = time.time()
 
+    # On each clock cycle, if there is a message in the message queue for the machine
     if not message_queue.empty():
-        # Receive the message and decode it
-        # TODO
-        # msg = sock.recv(1024).decode()
+        # The virtual machine should take one message off the queue
         msg = message_queue.get()
         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
         sender_clock = int(msg.split()[1])
         logical_clock = max(logical_clock, sender_clock) + 1
-        # Write a log entry for the received message
+        # TODO: @gianni @angelloghernan for ur analysis, it might be easier to log to a CSV or parse this text output. it's not required by spec but might be easier for you
+        # Write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time.
+        global_time_string = time.strftime("%m-%d_%H-%M-%S", time.time())
         log_file.write(
-            f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
+            f"Received message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}. The length of the message queue remaining is {message_queue.qsize()}\n"
         )
     else:
         # Generate a random integer between 1 and 10 to decide what event to perform
