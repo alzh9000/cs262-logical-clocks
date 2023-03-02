@@ -201,39 +201,32 @@ def virtual_machine(socks, id):
     for item in list(message_queue.queue):
         print(COLORS[from_id] + item, "" + RESET)
 
-    # # Try to connect to the other virtual machines
-    # try:
-    #     # Connect to the next virtual machine in the ring
-    #     next_sock = socks[(id + 1) % 3]
-    #     print(COLORS[from_id] + (IP_ADDRESS, PORTS[(id + 1) % 3]), "" + RESET)
-    #     next_sock.connect((IP_ADDRESS, PORTS[(id + 1) % 3]))
-    #     print(COLORS[from_id] + f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 1) % 3]}")
-    #     # Connect to the previous virtual machine in the ring
-    #     prev_sock = socks[(id + 2) % 3]
-    #     prev_sock.connect((IP_ADDRESS, PORTS[(id + 2) % 3]))
-    #     print(COLORS[from_id] + f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 2) % 3]}")
-    #     # Send an initialization message to the next machine in the ring
-    #     logical_clock = send_message(
-    #         next_sock, "Initialization message", logical_clock, log_file
-    #     )
-    #     # Send an initialization message to the previous machine in the ring
-    #     logical_clock = send_message(
-    #         prev_sock, "Initialization message", logical_clock, log_file
-    #     )
-    # # If there was an error connecting to the other virtual machines, print an error message and return
-    # except socket.error as e:
-    #     print(COLORS[from_id] + f"Socket Error: {e}")
-    #     return
+    # Connect to the next virtual machine in the ring
+    next_sock = sockets_dict[(from_id, (from_id + 1) % 3)]
+    # Connect to the previous virtual machine in the ring
+    prev_sock = sockets_dict[(from_id, (from_id - 1) % 3)]
+    # Send an initialization message to the next machine in the ring
+    logical_clock = send_message(
+        next_sock, "Initialization message", logical_clock, log_file
+    )
+    # Send an initialization message to the previous machine in the ring
+    logical_clock = send_message(
+        prev_sock, "Initialization message", logical_clock, log_file
+    )
 
-    # # Main loop for the virtual machine
-    # while True:
-    #     # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
-    #     logical_clock = receive_message(next_sock, logical_clock, log_file)
-    #     logical_clock = receive_message(prev_sock, logical_clock, log_file)
-    #     # Generate events and update the logical clock value based on the outcome of the events
-    #     logical_clock = process_events(socks, logical_clock, log_file, id)
-    #     # Wait for one second before checking for messages and generating events again
-    #     time.sleep(1)
+    # Main loop for the virtual machine
+    while True:
+        # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
+        logical_clock = receive_message(
+            next_sock, logical_clock, log_file, message_queue
+        )
+        logical_clock = receive_message(
+            prev_sock, logical_clock, log_file, message_queue
+        )
+        # Generate events and update the logical clock value based on the outcome of the events
+        logical_clock = process_events(sockets_dict, logical_clock, log_file, from_id)
+        # Wait for one second before checking for messages and generating events again
+        time.sleep(1)
 
 
 # Define a function to send a message to another virtual machine
@@ -250,11 +243,17 @@ def send_message(sock, msg, logical_clock, log_file):
 
 
 # Define a function to receive a message from another virtual machine
-def receive_message(sock, logical_clock, log_file):
+def receive_message(sock, logical_clock, log_file, q):
     # Try to receive a message from the other virtual machine
-    try:
+    # try:
+    # get an item from the queue if it's not empty
+    if not q.empty():
+        item = q.get()
+        print(item)
         # Receive the message and decode it
-        msg = sock.recv(1024).decode()
+        # TODO
+        # msg = sock.recv(1024).decode()
+        msg = q.get()
         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
         sender_clock = int(msg.split()[1])
         logical_clock = max(logical_clock, sender_clock) + 1
@@ -262,36 +261,36 @@ def receive_message(sock, logical_clock, log_file):
         log_file.write(
             f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
         )
-    # If there was an error receiving the message, just increment the local logical clock value and write a log entry for no message being received
-    except socket.error:
-        logical_clock += 1
-        log_file.write(
-            f"No message received at {time.time()} with logical clock {logical_clock}\n"
-        )
+    # # If there was an error receiving the message, just increment the local logical clock value and write a log entry for no message being received
+    # except socket.error:
+    #     logical_clock += 1
+    #     log_file.write(
+    #         f"No message received at {time.time()} with logical clock {logical_clock}\n"
+    #     )
     # Return the updated logical clock value
     return logical_clock
 
 
 # Define a function to generate events and update the logical clock accordingly
-def process_events(socks, logical_clock, log_file, id):
+def process_events(sockets_dict, logical_clock, log_file, from_id):
     # Generate a random integer between 1 and 10 to decide what event to perform
     event = random.randint(1, 10)
     # If the event is 1, send a message to another machine with the current logical clock value
     if event == 1:
-        sock = socks[(id + 1) % 3]
+        sock = sockets_dict[(from_id, (from_id + 1) % 3)]
         logical_clock = send_message(
             sock, f"{id} {logical_clock}", logical_clock, log_file
         )
     # If the event is 2, send a message to the next machine in the ring with the current logical clock value
     elif event == 2:
-        sock = socks[(id + 1) % 3]
+        sock = sockets_dict[(from_id, (from_id - 1) % 3)]
         logical_clock = send_message(
             sock, f"{id} {logical_clock}", logical_clock, log_file
         )
     # If the event is 3, send a message to both other machines in the ring with the current logical clock value
     elif event == 3:
-        sock1 = socks[(id + 1) % 3]
-        sock2 = socks[(id + 2) % 3]
+        sock1 = sockets_dict[(from_id, (from_id + 1) % 3)]
+        sock2 = sockets_dict[(from_id, (from_id - 1) % 3)]
         logical_clock = send_message(
             sock1, f"{id} {logical_clock}", logical_clock, log_file
         )
