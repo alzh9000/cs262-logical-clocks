@@ -1,0 +1,596 @@
+Sent message Initialization message at global UTC time (gotten from the system) 03-02_17-53-42.907016 with logical clock time 1.
+Sent message Initialization message at global UTC time (gotten from the system) 03-02_17-53-42.907314 with logical clock time 2.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-43.513089 with logical clock time 3.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-43.718105 with logical clock time 4.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-43.920607 with logical clock time 5.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-44.125512 with logical clock time 6.
+Received message 2 5 at global UTC time (gotten from the system) 03-02_17-53-44.327703 with logical clock time 7. The length of the message queue remaining is 0
+Sent message 1 7 at global UTC time (gotten from the system) 03-02_17-53-44.528841 with logical clock time 8.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-44.733861 with logical clock time 9.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-44.938894 with logical clock time 10.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-45.141988 with logical clock time 11.
+Sent message 1 11 at global UTC time (gotten from the system) 03-02_17-53-45.347064 with logical clock time 12.
+Sent message 1 12 at global UTC time (gotten from the system) 03-02_17-53-45.347116 with logical clock time 13.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-45.552051 with logical clock time 14.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-45.757055 with logical clock time 15.
+Sent message 1 15 at global UTC time (gotten from the system) 03-02_17-53-45.958218 with logical clock time 16.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-46.163164 with logical clock time 17.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-46.363735 with logical clock time 18.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-46.568754 with logical clock time 19.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-46.773631 with logical clock time 20.
+Sent message 1 20 at global UTC time (gotten from the system) 03-02_17-53-46.973753 with logical clock time 21.
+Received message 2 17 at global UTC time (gotten from the system) 03-02_17-53-47.173970 with logical clock time 22. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-47.378990 with logical clock time 23.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-47.584021 with logical clock time 24.
+Sent message 1 24 at global UTC time (gotten from the system) 03-02_17-53-47.786641 with logical clock time 25.
+Sent message 1 25 at global UTC time (gotten from the system) 03-02_17-53-47.786693 with logical clock time 26.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-47.991645 with logical clock time 27.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-48.196680 with logical clock time 28.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-48.400893 with logical clock time 29.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-48.601346 with logical clock time 30.
+Sent message 1 30 at global UTC time (gotten from the system) 03-02_17-53-48.806401 with logical clock time 31.
+Sent message 1 31 at global UTC time (gotten from the system) 03-02_17-53-49.010147 with logical clock time 32.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-49.215157 with logical clock time 33.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-49.420180 with logical clock time 34.
+Received message 2 34 at global UTC time (gotten from the system) 03-02_17-53-49.625249 with logical clock time 35. The length of the message queue remaining is 0
+Sent message 1 35 at global UTC time (gotten from the system) 03-02_17-53-49.830320 with logical clock time 36.
+Sent message 1 36 at global UTC time (gotten from the system) 03-02_17-53-49.830375 with logical clock time 37.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-50.035301 with logical clock time 38.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-50.240339 with logical clock time 39.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-50.445373 with logical clock time 40.
+Received message 2 39 at global UTC time (gotten from the system) 03-02_17-53-50.650444 with logical clock time 41. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-50.855557 with logical clock time 42.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-51.058092 with logical clock time 43.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-51.258751 with logical clock time 44.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-51.460194 with logical clock time 45.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-51.662137 with logical clock time 46.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-51.867168 with logical clock time 47.
+Sent message 1 47 at global UTC time (gotten from the system) 03-02_17-53-52.072244 with logical clock time 48.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-52.277246 with logical clock time 49.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-52.482302 with logical clock time 50.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-52.687317 with logical clock time 51.
+Sent message 1 51 at global UTC time (gotten from the system) 03-02_17-53-52.891802 with logical clock time 52.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-53.093268 with logical clock time 53.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-53.298295 with logical clock time 54.
+Received message 0 50 at global UTC time (gotten from the system) 03-02_17-53-53.503359 with logical clock time 55. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-53.708367 with logical clock time 56.
+Sent message 1 56 at global UTC time (gotten from the system) 03-02_17-53-53.913448 with logical clock time 57.
+Sent message 1 57 at global UTC time (gotten from the system) 03-02_17-53-53.913550 with logical clock time 58.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-54.118424 with logical clock time 59.
+Sent message 1 59 at global UTC time (gotten from the system) 03-02_17-53-54.318682 with logical clock time 60.
+Sent message 1 60 at global UTC time (gotten from the system) 03-02_17-53-54.318738 with logical clock time 61.
+Sent message 1 61 at global UTC time (gotten from the system) 03-02_17-53-54.529365 with logical clock time 62.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-54.734343 with logical clock time 63.
+Received message 2 61 at global UTC time (gotten from the system) 03-02_17-53-54.937782 with logical clock time 64. The length of the message queue remaining is 0
+Sent message 1 64 at global UTC time (gotten from the system) 03-02_17-53-55.142868 with logical clock time 65.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-55.346517 with logical clock time 66.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-55.551543 with logical clock time 67.
+Sent message 1 67 at global UTC time (gotten from the system) 03-02_17-53-55.753282 with logical clock time 68.
+Sent message 1 68 at global UTC time (gotten from the system) 03-02_17-53-55.753332 with logical clock time 69.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-55.957995 with logical clock time 70.
+Sent message 1 70 at global UTC time (gotten from the system) 03-02_17-53-56.162433 with logical clock time 71.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-56.367415 with logical clock time 72.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-56.573746 with logical clock time 73.
+Received message 2 71 at global UTC time (gotten from the system) 03-02_17-53-56.775489 with logical clock time 74. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-56.982897 with logical clock time 75.
+Sent message 1 75 at global UTC time (gotten from the system) 03-02_17-53-57.192743 with logical clock time 76.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-57.396894 with logical clock time 77.
+Received message 2 74 at global UTC time (gotten from the system) 03-02_17-53-57.597932 with logical clock time 78. The length of the message queue remaining is 0
+Received message 0 76 at global UTC time (gotten from the system) 03-02_17-53-57.798630 with logical clock time 79. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-58.003668 with logical clock time 80.
+Received message 0 78 at global UTC time (gotten from the system) 03-02_17-53-58.206253 with logical clock time 81. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-58.407974 with logical clock time 82.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-58.613009 with logical clock time 83.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-58.818056 with logical clock time 84.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-59.023062 with logical clock time 85.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-59.225412 with logical clock time 86.
+Received message 2 83 at global UTC time (gotten from the system) 03-02_17-53-59.430432 with logical clock time 87. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-59.635440 with logical clock time 88.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-53-59.840735 with logical clock time 89.
+Received message 2 86 at global UTC time (gotten from the system) 03-02_17-54-00.041311 with logical clock time 90. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-00.244782 with logical clock time 91.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-00.449880 with logical clock time 92.
+Received message 2 88 at global UTC time (gotten from the system) 03-02_17-54-00.653954 with logical clock time 93. The length of the message queue remaining is 0
+Received message 0 87 at global UTC time (gotten from the system) 03-02_17-54-00.858982 with logical clock time 94. The length of the message queue remaining is 1
+Received message 2 89 at global UTC time (gotten from the system) 03-02_17-54-01.064020 with logical clock time 95. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-01.267083 with logical clock time 96.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-01.472125 with logical clock time 97.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-01.674125 with logical clock time 98.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-01.878680 with logical clock time 99.
+Received message 2 94 at global UTC time (gotten from the system) 03-02_17-54-02.083287 with logical clock time 100. The length of the message queue remaining is 1
+Received message 0 91 at global UTC time (gotten from the system) 03-02_17-54-02.284689 with logical clock time 101. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-02.489712 with logical clock time 102.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-02.694742 with logical clock time 103.
+Received message 2 97 at global UTC time (gotten from the system) 03-02_17-54-02.899606 with logical clock time 104. The length of the message queue remaining is 0
+Received message 2 98 at global UTC time (gotten from the system) 03-02_17-54-03.104114 with logical clock time 105. The length of the message queue remaining is 0
+Sent message 1 105 at global UTC time (gotten from the system) 03-02_17-54-03.308558 with logical clock time 106.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-03.513551 with logical clock time 107.
+Sent message 1 107 at global UTC time (gotten from the system) 03-02_17-54-03.718752 with logical clock time 108.
+Sent message 1 108 at global UTC time (gotten from the system) 03-02_17-54-03.718859 with logical clock time 109.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-03.921205 with logical clock time 110.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-04.126241 with logical clock time 111.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-04.328889 with logical clock time 112.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-04.533904 with logical clock time 113.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-04.738938 with logical clock time 114.
+Received message 0 110 at global UTC time (gotten from the system) 03-02_17-54-04.940270 with logical clock time 115. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-05.144920 with logical clock time 116.
+Sent message 1 116 at global UTC time (gotten from the system) 03-02_17-54-05.350674 with logical clock time 117.
+Sent message 1 117 at global UTC time (gotten from the system) 03-02_17-54-05.350884 with logical clock time 118.
+Sent message 1 118 at global UTC time (gotten from the system) 03-02_17-54-05.551991 with logical clock time 119.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-05.757002 with logical clock time 120.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-05.962117 with logical clock time 121.
+Received message 2 120 at global UTC time (gotten from the system) 03-02_17-54-06.165423 with logical clock time 122. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-06.369081 with logical clock time 123.
+Sent message 1 123 at global UTC time (gotten from the system) 03-02_17-54-06.573252 with logical clock time 124.
+Sent message 1 124 at global UTC time (gotten from the system) 03-02_17-54-06.778290 with logical clock time 125.
+Sent message 1 125 at global UTC time (gotten from the system) 03-02_17-54-06.983397 with logical clock time 126.
+Sent message 1 126 at global UTC time (gotten from the system) 03-02_17-54-06.983490 with logical clock time 127.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-07.183796 with logical clock time 128.
+Sent message 1 128 at global UTC time (gotten from the system) 03-02_17-54-07.389232 with logical clock time 129.
+Received message 0 127 at global UTC time (gotten from the system) 03-02_17-54-07.589342 with logical clock time 130. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-07.794499 with logical clock time 131.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-07.995660 with logical clock time 132.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-08.200708 with logical clock time 133.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-08.405803 with logical clock time 134.
+Received message 2 132 at global UTC time (gotten from the system) 03-02_17-54-08.607865 with logical clock time 135. The length of the message queue remaining is 0
+Sent message 1 135 at global UTC time (gotten from the system) 03-02_17-54-08.813005 with logical clock time 136.
+Sent message 1 136 at global UTC time (gotten from the system) 03-02_17-54-08.813103 with logical clock time 137.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-09.018011 with logical clock time 138.
+Received message 2 136 at global UTC time (gotten from the system) 03-02_17-54-09.222238 with logical clock time 139. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-09.427239 with logical clock time 140.
+Sent message 1 140 at global UTC time (gotten from the system) 03-02_17-54-09.632477 with logical clock time 141.
+Received message 2 138 at global UTC time (gotten from the system) 03-02_17-54-09.837369 with logical clock time 142. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-10.041987 with logical clock time 143.
+Sent message 1 143 at global UTC time (gotten from the system) 03-02_17-54-10.247062 with logical clock time 144.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-10.452077 with logical clock time 145.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-10.657178 with logical clock time 146.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-10.858175 with logical clock time 147.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-11.063307 with logical clock time 148.
+Received message 0 145 at global UTC time (gotten from the system) 03-02_17-54-11.268304 with logical clock time 149. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-11.473348 with logical clock time 150.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-11.678379 with logical clock time 151.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-11.883509 with logical clock time 152.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-12.088761 with logical clock time 153.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-12.291264 with logical clock time 154.
+Sent message 1 154 at global UTC time (gotten from the system) 03-02_17-54-12.495635 with logical clock time 155.
+Sent message 1 155 at global UTC time (gotten from the system) 03-02_17-54-12.495683 with logical clock time 156.
+Sent message 1 156 at global UTC time (gotten from the system) 03-02_17-54-12.700717 with logical clock time 157.
+Sent message 1 157 at global UTC time (gotten from the system) 03-02_17-54-12.905762 with logical clock time 158.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-13.108826 with logical clock time 159.
+Sent message 1 159 at global UTC time (gotten from the system) 03-02_17-54-13.314108 with logical clock time 160.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-13.518946 with logical clock time 161.
+Received message 0 158 at global UTC time (gotten from the system) 03-02_17-54-13.723988 with logical clock time 162. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-13.925037 with logical clock time 163.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-14.130074 with logical clock time 164.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-14.333925 with logical clock time 165.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-14.536618 with logical clock time 166.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-14.740301 with logical clock time 167.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-14.946286 with logical clock time 168.
+Received message 2 165 at global UTC time (gotten from the system) 03-02_17-54-15.146593 with logical clock time 169. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-15.351651 with logical clock time 170.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-15.556057 with logical clock time 171.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-15.763376 with logical clock time 172.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-15.968375 with logical clock time 173.
+Sent message 1 173 at global UTC time (gotten from the system) 03-02_17-54-16.171919 with logical clock time 174.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-16.372476 with logical clock time 175.
+Received message 2 172 at global UTC time (gotten from the system) 03-02_17-54-16.575354 with logical clock time 176. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-16.780446 with logical clock time 177.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-16.985496 with logical clock time 178.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-17.190591 with logical clock time 179.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-17.392400 with logical clock time 180.
+Sent message 1 180 at global UTC time (gotten from the system) 03-02_17-54-17.597499 with logical clock time 181.
+Sent message 1 181 at global UTC time (gotten from the system) 03-02_17-54-17.597543 with logical clock time 182.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-17.802460 with logical clock time 183.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-18.015667 with logical clock time 184.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-18.216844 with logical clock time 185.
+Received message 2 183 at global UTC time (gotten from the system) 03-02_17-54-18.421940 with logical clock time 186. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-18.626928 with logical clock time 187.
+Sent message 1 187 at global UTC time (gotten from the system) 03-02_17-54-18.832023 with logical clock time 188.
+Received message 0 184 at global UTC time (gotten from the system) 03-02_17-54-19.032521 with logical clock time 189. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-19.237446 with logical clock time 190.
+Received message 2 189 at global UTC time (gotten from the system) 03-02_17-54-19.439806 with logical clock time 191. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-19.642283 with logical clock time 192.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-19.847331 with logical clock time 193.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-20.052346 with logical clock time 194.
+Sent message 1 194 at global UTC time (gotten from the system) 03-02_17-54-20.256919 with logical clock time 195.
+Sent message 1 195 at global UTC time (gotten from the system) 03-02_17-54-20.462195 with logical clock time 196.
+Sent message 1 196 at global UTC time (gotten from the system) 03-02_17-54-20.462424 with logical clock time 197.
+Sent message 1 197 at global UTC time (gotten from the system) 03-02_17-54-20.667167 with logical clock time 198.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-20.872128 with logical clock time 199.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-21.077165 with logical clock time 200.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-21.282200 with logical clock time 201.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-21.487228 with logical clock time 202.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-21.691729 with logical clock time 203.
+Received message 2 201 at global UTC time (gotten from the system) 03-02_17-54-21.896773 with logical clock time 204. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-22.101790 with logical clock time 205.
+Received message 0 201 at global UTC time (gotten from the system) 03-02_17-54-22.306888 with logical clock time 206. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-22.508092 with logical clock time 207.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-22.711423 with logical clock time 208.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-22.916072 with logical clock time 209.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-23.121104 with logical clock time 210.
+Sent message 1 210 at global UTC time (gotten from the system) 03-02_17-54-23.325496 with logical clock time 211.
+Sent message 1 211 at global UTC time (gotten from the system) 03-02_17-54-23.525315 with logical clock time 212.
+Sent message 1 212 at global UTC time (gotten from the system) 03-02_17-54-23.525378 with logical clock time 213.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-23.730284 with logical clock time 214.
+Sent message 1 214 at global UTC time (gotten from the system) 03-02_17-54-23.935657 with logical clock time 215.
+Sent message 1 215 at global UTC time (gotten from the system) 03-02_17-54-24.139020 with logical clock time 216.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-24.340057 with logical clock time 217.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-24.545865 with logical clock time 218.
+Sent message 1 218 at global UTC time (gotten from the system) 03-02_17-54-24.747072 with logical clock time 219.
+Sent message 1 219 at global UTC time (gotten from the system) 03-02_17-54-24.949844 with logical clock time 220.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-25.149934 with logical clock time 221.
+Received message 2 219 at global UTC time (gotten from the system) 03-02_17-54-25.354979 with logical clock time 222. The length of the message queue remaining is 0
+Received message 2 221 at global UTC time (gotten from the system) 03-02_17-54-25.557663 with logical clock time 223. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-25.762698 with logical clock time 224.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-25.963101 with logical clock time 225.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-26.165360 with logical clock time 226.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-26.369320 with logical clock time 227.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-26.574375 with logical clock time 228.
+Received message 2 227 at global UTC time (gotten from the system) 03-02_17-54-26.779418 with logical clock time 229. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-26.983203 with logical clock time 230.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-27.186335 with logical clock time 231.
+Received message 2 230 at global UTC time (gotten from the system) 03-02_17-54-27.387937 with logical clock time 232. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-27.591513 with logical clock time 233.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-27.793882 with logical clock time 234.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-27.998885 with logical clock time 235.
+Received message 0 231 at global UTC time (gotten from the system) 03-02_17-54-28.203929 with logical clock time 236. The length of the message queue remaining is 0
+Received message 0 233 at global UTC time (gotten from the system) 03-02_17-54-28.407530 with logical clock time 237. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-28.612506 with logical clock time 238.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-28.815253 with logical clock time 239.
+Sent message 1 239 at global UTC time (gotten from the system) 03-02_17-54-29.020331 with logical clock time 240.
+Received message 0 236 at global UTC time (gotten from the system) 03-02_17-54-29.224252 with logical clock time 241. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-29.429270 with logical clock time 242.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-29.634303 with logical clock time 243.
+Received message 0 239 at global UTC time (gotten from the system) 03-02_17-54-29.834615 with logical clock time 244. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-30.039642 with logical clock time 245.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-30.244674 with logical clock time 246.
+Received message 2 244 at global UTC time (gotten from the system) 03-02_17-54-30.449730 with logical clock time 247. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-30.654745 with logical clock time 248.
+Sent message 1 248 at global UTC time (gotten from the system) 03-02_17-54-30.856945 with logical clock time 249.
+Received message 2 247 at global UTC time (gotten from the system) 03-02_17-54-31.061929 with logical clock time 250. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-31.266953 with logical clock time 251.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-31.472188 with logical clock time 252.
+Sent message 1 252 at global UTC time (gotten from the system) 03-02_17-54-31.676860 with logical clock time 253.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-31.878093 with logical clock time 254.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-32.079929 with logical clock time 255.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-32.284970 with logical clock time 256.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-32.487015 with logical clock time 257.
+Sent message 1 257 at global UTC time (gotten from the system) 03-02_17-54-32.689329 with logical clock time 258.
+Received message 2 255 at global UTC time (gotten from the system) 03-02_17-54-32.894368 with logical clock time 259. The length of the message queue remaining is 0
+Received message 2 256 at global UTC time (gotten from the system) 03-02_17-54-33.099390 with logical clock time 260. The length of the message queue remaining is 0
+Sent message 1 260 at global UTC time (gotten from the system) 03-02_17-54-33.304443 with logical clock time 261.
+Received message 0 259 at global UTC time (gotten from the system) 03-02_17-54-33.504792 with logical clock time 262. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-33.709830 with logical clock time 263.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-33.910128 with logical clock time 264.
+Sent message 1 264 at global UTC time (gotten from the system) 03-02_17-54-34.115209 with logical clock time 265.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-34.317312 with logical clock time 266.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-34.522354 with logical clock time 267.
+Sent message 1 267 at global UTC time (gotten from the system) 03-02_17-54-34.723329 with logical clock time 268.
+Sent message 1 268 at global UTC time (gotten from the system) 03-02_17-54-34.723380 with logical clock time 269.
+Sent message 1 269 at global UTC time (gotten from the system) 03-02_17-54-34.928378 with logical clock time 270.
+Sent message 1 270 at global UTC time (gotten from the system) 03-02_17-54-34.928439 with logical clock time 271.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-35.133353 with logical clock time 272.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-35.335549 with logical clock time 273.
+Sent message 1 273 at global UTC time (gotten from the system) 03-02_17-54-35.540504 with logical clock time 274.
+Sent message 1 274 at global UTC time (gotten from the system) 03-02_17-54-35.741276 with logical clock time 275.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-35.943880 with logical clock time 276.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-36.148968 with logical clock time 277.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-36.349502 with logical clock time 278.
+Received message 0 276 at global UTC time (gotten from the system) 03-02_17-54-36.554540 with logical clock time 279. The length of the message queue remaining is 0
+Sent message 1 279 at global UTC time (gotten from the system) 03-02_17-54-36.759613 with logical clock time 280.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-36.960397 with logical clock time 281.
+Received message 0 278 at global UTC time (gotten from the system) 03-02_17-54-37.161123 with logical clock time 282. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-37.366140 with logical clock time 283.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-37.571172 with logical clock time 284.
+Sent message 1 284 at global UTC time (gotten from the system) 03-02_17-54-37.776289 with logical clock time 285.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-37.979875 with logical clock time 286.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-38.184503 with logical clock time 287.
+Received message 2 285 at global UTC time (gotten from the system) 03-02_17-54-38.389555 with logical clock time 288. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-38.589743 with logical clock time 289.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-38.793186 with logical clock time 290.
+Sent message 1 290 at global UTC time (gotten from the system) 03-02_17-54-38.998252 with logical clock time 291.
+Sent message 1 291 at global UTC time (gotten from the system) 03-02_17-54-38.998298 with logical clock time 292.
+Sent message 1 292 at global UTC time (gotten from the system) 03-02_17-54-39.199314 with logical clock time 293.
+Sent message 1 293 at global UTC time (gotten from the system) 03-02_17-54-39.199426 with logical clock time 294.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-39.404304 with logical clock time 295.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-39.606457 with logical clock time 296.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-39.808118 with logical clock time 297.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-40.013143 with logical clock time 298.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-40.218175 with logical clock time 299.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-40.418234 with logical clock time 300.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-40.623274 with logical clock time 301.
+Sent message 1 301 at global UTC time (gotten from the system) 03-02_17-54-40.824521 with logical clock time 302.
+Sent message 1 302 at global UTC time (gotten from the system) 03-02_17-54-40.824584 with logical clock time 303.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-41.024675 with logical clock time 304.
+Sent message 1 304 at global UTC time (gotten from the system) 03-02_17-54-41.230210 with logical clock time 305.
+Sent message 1 305 at global UTC time (gotten from the system) 03-02_17-54-41.434998 with logical clock time 306.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-41.640001 with logical clock time 307.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-41.845037 with logical clock time 308.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-42.050085 with logical clock time 309.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-42.255141 with logical clock time 310.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-42.457552 with logical clock time 311.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-42.658101 with logical clock time 312.
+Received message 2 309 at global UTC time (gotten from the system) 03-02_17-54-42.863150 with logical clock time 313. The length of the message queue remaining is 0
+Received message 0 309 at global UTC time (gotten from the system) 03-02_17-54-43.065901 with logical clock time 314. The length of the message queue remaining is 0
+Received message 0 310 at global UTC time (gotten from the system) 03-02_17-54-43.270932 with logical clock time 315. The length of the message queue remaining is 0
+Sent message 1 315 at global UTC time (gotten from the system) 03-02_17-54-43.476015 with logical clock time 316.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-43.681027 with logical clock time 317.
+Sent message 1 317 at global UTC time (gotten from the system) 03-02_17-54-43.884506 with logical clock time 318.
+Sent message 1 318 at global UTC time (gotten from the system) 03-02_17-54-43.884553 with logical clock time 319.
+Sent message 1 319 at global UTC time (gotten from the system) 03-02_17-54-44.089557 with logical clock time 320.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-44.290723 with logical clock time 321.
+Received message 2 320 at global UTC time (gotten from the system) 03-02_17-54-44.495766 with logical clock time 322. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-44.695994 with logical clock time 323.
+Received message 2 322 at global UTC time (gotten from the system) 03-02_17-54-44.901030 with logical clock time 324. The length of the message queue remaining is 0
+Sent message 1 324 at global UTC time (gotten from the system) 03-02_17-54-45.106040 with logical clock time 325.
+Sent message 1 325 at global UTC time (gotten from the system) 03-02_17-54-45.306967 with logical clock time 326.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-45.507820 with logical clock time 327.
+Received message 0 325 at global UTC time (gotten from the system) 03-02_17-54-45.712858 with logical clock time 328. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-45.917876 with logical clock time 329.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-46.122985 with logical clock time 330.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-46.324319 with logical clock time 331.
+Received message 2 329 at global UTC time (gotten from the system) 03-02_17-54-46.529369 with logical clock time 332. The length of the message queue remaining is 0
+Received message 0 328 at global UTC time (gotten from the system) 03-02_17-54-46.734422 with logical clock time 333. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-46.936705 with logical clock time 334.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-47.141179 with logical clock time 335.
+Received message 0 331 at global UTC time (gotten from the system) 03-02_17-54-47.343894 with logical clock time 336. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-47.548914 with logical clock time 337.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-47.753927 with logical clock time 338.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-47.958965 with logical clock time 339.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-48.164021 with logical clock time 340.
+Received message 0 335 at global UTC time (gotten from the system) 03-02_17-54-48.369056 with logical clock time 341. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-48.574072 with logical clock time 342.
+Sent message 1 342 at global UTC time (gotten from the system) 03-02_17-54-48.774446 with logical clock time 343.
+Sent message 1 343 at global UTC time (gotten from the system) 03-02_17-54-48.979453 with logical clock time 344.
+Sent message 1 344 at global UTC time (gotten from the system) 03-02_17-54-48.979506 with logical clock time 345.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-49.181483 with logical clock time 346.
+Sent message 1 346 at global UTC time (gotten from the system) 03-02_17-54-49.386555 with logical clock time 347.
+Received message 2 346 at global UTC time (gotten from the system) 03-02_17-54-49.589554 with logical clock time 348. The length of the message queue remaining is 0
+Sent message 1 348 at global UTC time (gotten from the system) 03-02_17-54-49.791206 with logical clock time 349.
+Sent message 1 349 at global UTC time (gotten from the system) 03-02_17-54-49.791243 with logical clock time 350.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-49.996199 with logical clock time 351.
+Sent message 1 351 at global UTC time (gotten from the system) 03-02_17-54-50.201266 with logical clock time 352.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-50.406259 with logical clock time 353.
+Sent message 1 353 at global UTC time (gotten from the system) 03-02_17-54-50.608643 with logical clock time 354.
+Received message 0 350 at global UTC time (gotten from the system) 03-02_17-54-50.810441 with logical clock time 355. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-51.015510 with logical clock time 356.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-51.220525 with logical clock time 357.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-51.425560 with logical clock time 358.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-51.630753 with logical clock time 359.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-51.833295 with logical clock time 360.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-52.035956 with logical clock time 361.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-52.240977 with logical clock time 362.
+Received message 0 355 at global UTC time (gotten from the system) 03-02_17-54-52.441968 with logical clock time 363. The length of the message queue remaining is 0
+Sent message 1 363 at global UTC time (gotten from the system) 03-02_17-54-52.647028 with logical clock time 364.
+Sent message 1 364 at global UTC time (gotten from the system) 03-02_17-54-52.647070 with logical clock time 365.
+Sent message 1 365 at global UTC time (gotten from the system) 03-02_17-54-52.852056 with logical clock time 366.
+Sent message 1 366 at global UTC time (gotten from the system) 03-02_17-54-52.852103 with logical clock time 367.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-53.056919 with logical clock time 368.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-53.257530 with logical clock time 369.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-53.457578 with logical clock time 370.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-53.662604 with logical clock time 371.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-53.867956 with logical clock time 372.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-54.069479 with logical clock time 373.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-54.274511 with logical clock time 374.
+Received message 2 371 at global UTC time (gotten from the system) 03-02_17-54-54.479567 with logical clock time 375. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-54.684591 with logical clock time 376.
+Received message 2 373 at global UTC time (gotten from the system) 03-02_17-54-54.889634 with logical clock time 377. The length of the message queue remaining is 0
+Received message 0 371 at global UTC time (gotten from the system) 03-02_17-54-55.091313 with logical clock time 378. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-55.296333 with logical clock time 379.
+Received message 2 376 at global UTC time (gotten from the system) 03-02_17-54-55.501377 with logical clock time 380. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-55.706397 with logical clock time 381.
+Sent message 1 381 at global UTC time (gotten from the system) 03-02_17-54-55.907914 with logical clock time 382.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-56.108572 with logical clock time 383.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-56.313598 with logical clock time 384.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-56.518652 with logical clock time 385.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-56.723865 with logical clock time 386.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-56.925046 with logical clock time 387.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-57.130184 with logical clock time 388.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-57.332533 with logical clock time 389.
+Sent message 1 389 at global UTC time (gotten from the system) 03-02_17-54-57.537696 with logical clock time 390.
+Received message 0 386 at global UTC time (gotten from the system) 03-02_17-54-57.742615 with logical clock time 391. The length of the message queue remaining is 0
+Received message 2 390 at global UTC time (gotten from the system) 03-02_17-54-57.947644 with logical clock time 392. The length of the message queue remaining is 0
+Sent message 1 392 at global UTC time (gotten from the system) 03-02_17-54-58.152723 with logical clock time 393.
+Sent message 1 393 at global UTC time (gotten from the system) 03-02_17-54-58.152776 with logical clock time 394.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-58.357796 with logical clock time 395.
+Sent message 1 395 at global UTC time (gotten from the system) 03-02_17-54-58.563358 with logical clock time 396.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-58.768067 with logical clock time 397.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-58.972799 with logical clock time 398.
+Sent message 1 398 at global UTC time (gotten from the system) 03-02_17-54-59.177794 with logical clock time 399.
+Sent message 1 399 at global UTC time (gotten from the system) 03-02_17-54-59.382879 with logical clock time 400.
+Sent message 1 400 at global UTC time (gotten from the system) 03-02_17-54-59.382928 with logical clock time 401.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-59.587874 with logical clock time 402.
+Sent message 1 402 at global UTC time (gotten from the system) 03-02_17-54-59.791667 with logical clock time 403.
+Sent message 1 403 at global UTC time (gotten from the system) 03-02_17-54-59.791727 with logical clock time 404.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-54-59.996636 with logical clock time 405.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-00.199323 with logical clock time 406.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-00.404362 with logical clock time 407.
+Received message 2 405 at global UTC time (gotten from the system) 03-02_17-55-00.604440 with logical clock time 408. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-00.806997 with logical clock time 409.
+Received message 2 407 at global UTC time (gotten from the system) 03-02_17-55-01.007816 with logical clock time 410. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-01.212819 with logical clock time 411.
+Received message 0 406 at global UTC time (gotten from the system) 03-02_17-55-01.413389 with logical clock time 412. The length of the message queue remaining is 0
+Sent message 1 412 at global UTC time (gotten from the system) 03-02_17-55-01.618453 with logical clock time 413.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-01.823445 with logical clock time 414.
+Sent message 1 414 at global UTC time (gotten from the system) 03-02_17-55-02.024240 with logical clock time 415.
+Sent message 1 415 at global UTC time (gotten from the system) 03-02_17-55-02.024295 with logical clock time 416.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-02.227399 with logical clock time 417.
+Sent message 1 417 at global UTC time (gotten from the system) 03-02_17-55-02.436577 with logical clock time 418.
+Sent message 1 418 at global UTC time (gotten from the system) 03-02_17-55-02.641505 with logical clock time 419.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-02.846475 with logical clock time 420.
+Sent message 1 420 at global UTC time (gotten from the system) 03-02_17-55-03.051714 with logical clock time 421.
+Sent message 1 421 at global UTC time (gotten from the system) 03-02_17-55-03.254893 with logical clock time 422.
+Sent message 1 422 at global UTC time (gotten from the system) 03-02_17-55-03.254951 with logical clock time 423.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-03.459882 with logical clock time 424.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-03.665239 with logical clock time 425.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-03.868535 with logical clock time 426.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-04.071480 with logical clock time 427.
+Received message 0 424 at global UTC time (gotten from the system) 03-02_17-55-04.273482 with logical clock time 428. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-04.473942 with logical clock time 429.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-04.675499 with logical clock time 430.
+Received message 0 427 at global UTC time (gotten from the system) 03-02_17-55-04.877048 with logical clock time 431. The length of the message queue remaining is 0
+Sent message 1 431 at global UTC time (gotten from the system) 03-02_17-55-05.082566 with logical clock time 432.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-05.284519 with logical clock time 433.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-05.486298 with logical clock time 434.
+Received message 2 431 at global UTC time (gotten from the system) 03-02_17-55-05.687412 with logical clock time 435. The length of the message queue remaining is 0
+Sent message 1 435 at global UTC time (gotten from the system) 03-02_17-55-05.892530 with logical clock time 436.
+Sent message 1 436 at global UTC time (gotten from the system) 03-02_17-55-05.892651 with logical clock time 437.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-06.097383 with logical clock time 438.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-06.302754 with logical clock time 439.
+Received message 2 436 at global UTC time (gotten from the system) 03-02_17-55-06.506766 with logical clock time 440. The length of the message queue remaining is 0
+Received message 2 438 at global UTC time (gotten from the system) 03-02_17-55-06.707234 with logical clock time 441. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-06.912337 with logical clock time 442.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-07.113376 with logical clock time 443.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-07.315058 with logical clock time 444.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-07.520595 with logical clock time 445.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-07.724066 with logical clock time 446.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-07.928148 with logical clock time 447.
+Sent message 1 447 at global UTC time (gotten from the system) 03-02_17-55-08.133229 with logical clock time 448.
+Sent message 1 448 at global UTC time (gotten from the system) 03-02_17-55-08.133276 with logical clock time 449.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-08.338221 with logical clock time 450.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-08.539165 with logical clock time 451.
+Received message 2 449 at global UTC time (gotten from the system) 03-02_17-55-08.742403 with logical clock time 452. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-08.947718 with logical clock time 453.
+Sent message 1 453 at global UTC time (gotten from the system) 03-02_17-55-09.148817 with logical clock time 454.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-09.348843 with logical clock time 455.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-09.553934 with logical clock time 456.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-09.757290 with logical clock time 457.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-09.958985 with logical clock time 458.
+Received message 2 455 at global UTC time (gotten from the system) 03-02_17-55-10.164028 with logical clock time 459. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-10.368569 with logical clock time 460.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-10.573655 with logical clock time 461.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-10.774585 with logical clock time 462.
+Received message 2 459 at global UTC time (gotten from the system) 03-02_17-55-10.975336 with logical clock time 463. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-11.180478 with logical clock time 464.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-11.385539 with logical clock time 465.
+Received message 0 460 at global UTC time (gotten from the system) 03-02_17-55-11.590677 with logical clock time 466. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-11.795682 with logical clock time 467.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-12.011251 with logical clock time 468.
+Sent message 1 468 at global UTC time (gotten from the system) 03-02_17-55-12.216403 with logical clock time 469.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-12.418775 with logical clock time 470.
+Sent message 1 470 at global UTC time (gotten from the system) 03-02_17-55-12.624010 with logical clock time 471.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-12.825483 with logical clock time 472.
+Received message 0 464 at global UTC time (gotten from the system) 03-02_17-55-13.030532 with logical clock time 473. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-13.235644 with logical clock time 474.
+Sent message 1 474 at global UTC time (gotten from the system) 03-02_17-55-13.436182 with logical clock time 475.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-13.636800 with logical clock time 476.
+Sent message 1 476 at global UTC time (gotten from the system) 03-02_17-55-13.842092 with logical clock time 477.
+Received message 0 468 at global UTC time (gotten from the system) 03-02_17-55-14.046954 with logical clock time 478. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-14.252247 with logical clock time 479.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-14.454830 with logical clock time 480.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-14.658438 with logical clock time 481.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-14.863554 with logical clock time 482.
+Sent message 1 482 at global UTC time (gotten from the system) 03-02_17-55-15.067905 with logical clock time 483.
+Sent message 1 483 at global UTC time (gotten from the system) 03-02_17-55-15.272273 with logical clock time 484.
+Sent message 1 484 at global UTC time (gotten from the system) 03-02_17-55-15.477419 with logical clock time 485.
+Sent message 1 485 at global UTC time (gotten from the system) 03-02_17-55-15.682377 with logical clock time 486.
+Sent message 1 486 at global UTC time (gotten from the system) 03-02_17-55-15.682427 with logical clock time 487.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-15.884295 with logical clock time 488.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-16.089665 with logical clock time 489.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-16.292392 with logical clock time 490.
+Received message 2 487 at global UTC time (gotten from the system) 03-02_17-55-16.497364 with logical clock time 491. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-16.702393 with logical clock time 492.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-16.906983 with logical clock time 493.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-17.108187 with logical clock time 494.
+Sent message 1 494 at global UTC time (gotten from the system) 03-02_17-55-17.308861 with logical clock time 495.
+Sent message 1 495 at global UTC time (gotten from the system) 03-02_17-55-17.309016 with logical clock time 496.
+Sent message 1 496 at global UTC time (gotten from the system) 03-02_17-55-17.513794 with logical clock time 497.
+Sent message 1 497 at global UTC time (gotten from the system) 03-02_17-55-17.718824 with logical clock time 498.
+Sent message 1 498 at global UTC time (gotten from the system) 03-02_17-55-17.923876 with logical clock time 499.
+Sent message 1 499 at global UTC time (gotten from the system) 03-02_17-55-17.923934 with logical clock time 500.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-18.128934 with logical clock time 501.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-18.333925 with logical clock time 502.
+Received message 2 501 at global UTC time (gotten from the system) 03-02_17-55-18.538966 with logical clock time 503. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-18.743974 with logical clock time 504.
+Sent message 1 504 at global UTC time (gotten from the system) 03-02_17-55-18.949227 with logical clock time 505.
+Sent message 1 505 at global UTC time (gotten from the system) 03-02_17-55-18.949350 with logical clock time 506.
+Sent message 1 506 at global UTC time (gotten from the system) 03-02_17-55-19.152941 with logical clock time 507.
+Sent message 1 507 at global UTC time (gotten from the system) 03-02_17-55-19.358122 with logical clock time 508.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-19.563101 with logical clock time 509.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-19.768341 with logical clock time 510.
+Sent message 1 510 at global UTC time (gotten from the system) 03-02_17-55-19.973321 with logical clock time 511.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-20.178336 with logical clock time 512.
+Sent message 1 512 at global UTC time (gotten from the system) 03-02_17-55-20.383509 with logical clock time 513.
+Sent message 1 513 at global UTC time (gotten from the system) 03-02_17-55-20.383598 with logical clock time 514.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-20.584360 with logical clock time 515.
+Received message 2 513 at global UTC time (gotten from the system) 03-02_17-55-20.788071 with logical clock time 516. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-20.990588 with logical clock time 517.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-21.195655 with logical clock time 518.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-21.400746 with logical clock time 519.
+Sent message 1 519 at global UTC time (gotten from the system) 03-02_17-55-21.605874 with logical clock time 520.
+Received message 0 516 at global UTC time (gotten from the system) 03-02_17-55-21.810818 with logical clock time 521. The length of the message queue remaining is 0
+Received message 0 517 at global UTC time (gotten from the system) 03-02_17-55-22.015860 with logical clock time 522. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-22.220919 with logical clock time 523.
+Received message 0 519 at global UTC time (gotten from the system) 03-02_17-55-22.423898 with logical clock time 524. The length of the message queue remaining is 0
+Sent message 1 524 at global UTC time (gotten from the system) 03-02_17-55-22.628974 with logical clock time 525.
+Sent message 1 525 at global UTC time (gotten from the system) 03-02_17-55-22.629032 with logical clock time 526.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-22.833955 with logical clock time 527.
+Received message 0 526 at global UTC time (gotten from the system) 03-02_17-55-23.038995 with logical clock time 528. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-23.240558 with logical clock time 529.
+Received message 2 528 at global UTC time (gotten from the system) 03-02_17-55-23.445555 with logical clock time 530. The length of the message queue remaining is 0
+Sent message 1 530 at global UTC time (gotten from the system) 03-02_17-55-23.650600 with logical clock time 531.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-23.853334 with logical clock time 532.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-24.057269 with logical clock time 533.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-24.260835 with logical clock time 534.
+Received message 0 532 at global UTC time (gotten from the system) 03-02_17-55-24.465876 with logical clock time 535. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-24.670900 with logical clock time 536.
+Received message 2 535 at global UTC time (gotten from the system) 03-02_17-55-24.875264 with logical clock time 537. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-25.075366 with logical clock time 538.
+Sent message 1 538 at global UTC time (gotten from the system) 03-02_17-55-25.280442 with logical clock time 539.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-25.484384 with logical clock time 540.
+Sent message 1 540 at global UTC time (gotten from the system) 03-02_17-55-25.690229 with logical clock time 541.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-25.894147 with logical clock time 542.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-26.099195 with logical clock time 543.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-26.303049 with logical clock time 544.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-26.507151 with logical clock time 545.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-26.710166 with logical clock time 546.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-26.915300 with logical clock time 547.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-27.122853 with logical clock time 548.
+Sent message 1 548 at global UTC time (gotten from the system) 03-02_17-55-27.324115 with logical clock time 549.
+Sent message 1 549 at global UTC time (gotten from the system) 03-02_17-55-27.524862 with logical clock time 550.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-27.729854 with logical clock time 551.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-27.931206 with logical clock time 552.
+Received message 0 544 at global UTC time (gotten from the system) 03-02_17-55-28.136226 with logical clock time 553. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-28.341268 with logical clock time 554.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-28.546358 with logical clock time 555.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-28.747299 with logical clock time 556.
+Sent message 1 556 at global UTC time (gotten from the system) 03-02_17-55-28.949048 with logical clock time 557.
+Sent message 1 557 at global UTC time (gotten from the system) 03-02_17-55-28.949197 with logical clock time 558.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-29.152550 with logical clock time 559.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-29.357907 with logical clock time 560.
+Sent message 1 560 at global UTC time (gotten from the system) 03-02_17-55-29.562031 with logical clock time 561.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-29.765801 with logical clock time 562.
+Sent message 1 562 at global UTC time (gotten from the system) 03-02_17-55-29.971368 with logical clock time 563.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-30.175935 with logical clock time 564.
+Sent message 1 564 at global UTC time (gotten from the system) 03-02_17-55-30.381472 with logical clock time 565.
+Sent message 1 565 at global UTC time (gotten from the system) 03-02_17-55-30.381764 with logical clock time 566.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-30.586176 with logical clock time 567.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-30.790441 with logical clock time 568.
+Sent message 1 568 at global UTC time (gotten from the system) 03-02_17-55-30.995592 with logical clock time 569.
+Received message 0 567 at global UTC time (gotten from the system) 03-02_17-55-31.200520 with logical clock time 570. The length of the message queue remaining is 0
+Sent message 1 570 at global UTC time (gotten from the system) 03-02_17-55-31.405201 with logical clock time 571.
+Sent message 1 571 at global UTC time (gotten from the system) 03-02_17-55-31.405260 with logical clock time 572.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-31.607488 with logical clock time 573.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-31.812529 with logical clock time 574.
+Received message 2 571 at global UTC time (gotten from the system) 03-02_17-55-32.017603 with logical clock time 575. The length of the message queue remaining is 0
+Received message 2 572 at global UTC time (gotten from the system) 03-02_17-55-32.222634 with logical clock time 576. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-32.423727 with logical clock time 577.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-32.627401 with logical clock time 578.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-32.832436 with logical clock time 579.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-33.036799 with logical clock time 580.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-33.241831 with logical clock time 581.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-33.447141 with logical clock time 582.
+Received message 0 577 at global UTC time (gotten from the system) 03-02_17-55-33.648928 with logical clock time 583. The length of the message queue remaining is 0
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-33.854002 with logical clock time 584.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-34.059100 with logical clock time 585.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-34.264073 with logical clock time 586.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-34.466854 with logical clock time 587.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-34.667764 with logical clock time 588.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-34.873086 with logical clock time 589.
+Internal event occurred at global UTC time (gotten from the system) 03-02_17-55-35.075374 with logical clock time 590.
+Received message 0 583 at global UTC time (gotten from the system) 03-02_17-55-35.278293 with logical clock time 591. The length of the message queue remaining is 0
+Received message 0 585 at global UTC time (gotten from the system) 03-02_17-55-35.479770 with logical clock time 592. The length of the message queue remaining is 1
+Received message 2 586 at global UTC time (gotten from the system) 03-02_17-55-35.684863 with logical clock time 593. The length of the message queue remaining is 0
+Received message 0 586 at global UTC time (gotten from the system) 03-02_17-55-35.889878 with logical clock time 594. The length of the message queue remaining is 0
+Sent message 1 594 at global UTC time (gotten from the system) 03-02_17-55-36.092328 with logical clock time 595.
+Sent message 1 595 at global UTC time (gotten from the system) 03-02_17-55-36.092390 with logical clock time 596.

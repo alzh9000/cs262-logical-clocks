@@ -7,7 +7,7 @@ import os
 import multiprocessing
 from datetime import datetime
 
-# Define terminal color codes
+# Define terminal color codes to show which virtual machine/process is printing to the terminal
 COLORS = {
     0: "\033[0;31m",  # Red
     1: "\033[0;32m",  # Green
@@ -103,22 +103,20 @@ def client(to_id, message_queue, from_id, sockets_dict):
 
 
 # Define a function to simulate a virtual machine
-def virtual_machine(id, experiment_start_time, clock_rate):
+def virtual_machine(from_id, experiment_start_time, clock_rate):
     # Initialize the logical clock value to 0
     logical_clock = 0
-
-    from_id = id
 
     # Try to create a log file for this virtual machine's events
     try:
         # Create a subdirectory for this virtual machine's logs if it doesn't exist already
-        os.makedirs(f"svm{id}_logs", exist_ok=True)
-        # Create a log file for this virtual machine in its corresponding subdirectory
+        os.makedirs(f"svm{from_id}_logs", exist_ok=True)
+        # Create a log file for this virtual machine in its corresponding subdirectory with useful information in the file name
         experiment_start_time_string = time.strftime(
             "%m-%d_%H-%M-%S", time.localtime(experiment_start_time)
         )
         log_file = open(
-            f"svm{id}_logs/vm{id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
+            f"svm{from_id}_logs/vm{from_id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
             "w",
         )
     # If there was an error creating the log file, print an error message and return
@@ -126,66 +124,31 @@ def virtual_machine(id, experiment_start_time, clock_rate):
         print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
         return
 
-    # Create a message queue to store messages from clients
+    # Create a message queue to store messages from other virtual machines
     message_queue = queue.Queue()
 
-    # TODO: @gianni do we need to add mutexes or locks for when we're adding sockets to the dictionary in our threads? since client1 and client2 threads can both access at same time
+    # TODO: @gianni @dean do we need to add mutexes or locks for when we're adding sockets to the dictionary in our threads? since client1 and client2 threads can both access at same time
     sockets_dict = {}
 
     # Start the server thread
     server_thread = threading.Thread(
         target=server,
-        args=(PORTS[(id) % 3], message_queue, from_id, sockets_dict),
+        args=(PORTS[(from_id) % 3], message_queue, from_id, sockets_dict),
     )
     server_thread.start()
 
     # Give the servers enough time to start up
     time.sleep(2)
+
     # Start the client threads
     client1_thread = threading.Thread(
-        target=client, args=((id + 1) % 3, message_queue, from_id, sockets_dict)
+        target=client, args=((from_id + 1) % 3, message_queue, from_id, sockets_dict)
     )
     client1_thread.start()
 
+    # Wait for the virtual machines to all connect properly
     time.sleep(3)
-    print(sockets_dict)
-    s = sockets_dict[(from_id, (from_id - 1) % 3)]
-    message = f"HEYY Hello, {(from_id - 1) % 3}! from {from_id}"
-    print(message)
-    s.send(message.encode())
-    time.sleep(0.1)
-    s = sockets_dict[(from_id, (from_id + 1) % 3)]
-    message = f"BROOO Hello, {(from_id + 1) % 3}! from {from_id}"
-    print(message)
-    s.send(message.encode())
 
-    time.sleep(2)
-    print(COLORS[from_id] + str(message_queue), "" + RESET)
-    # print and remove the contents of the queue
-    while not message_queue.empty():
-        print(COLORS[from_id] + "", message_queue.get(), "" + RESET)
-
-    # Connect to the next virtual machine in the ring
-    next_sock = sockets_dict[(from_id, (from_id + 1) % 3)]
-    # Connect to the previous virtual machine in the ring
-    prev_sock = sockets_dict[(from_id, (from_id - 1) % 3)]
-    # Send an initialization message to the next machine in the ring
-    logical_clock = send_message(
-        next_sock, "Initialization message", logical_clock, log_file
-    )
-    # Send an initialization message to the previous machine in the ring
-    logical_clock = send_message(
-        prev_sock, "Initialization message", logical_clock, log_file
-    )
-
-    time.sleep(0.2)
-    # print and remove the contents of the queue
-    while not message_queue.empty():
-        print(COLORS[from_id] + "", message_queue.get(), "" + RESET)
-
-    # print(f"Logical clock value: {logical_clock}")
-
-    time.sleep(0.4)
     # Main loop for the virtual machine
     # Run for 120 seconds. TODO: we could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
     time_so_far = time.time() - experiment_start_time
@@ -274,7 +237,7 @@ def process_events(
                 f"Internal event occurred at global UTC time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
             )
 
-    # TODO: check this works
+    # TODO: check this works, @gianni u'll see this in ur analysis. I think it works though
     end_time = time.time()
     elapsed_time = end_time - start_time
     time.sleep((1 / clock_rate) - elapsed_time)
