@@ -39,7 +39,8 @@ def server(port, q, from_id, sockets_dict):
     while True:
         conn, addr = s.accept()
         print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
-        sockets_dict[(from_id, (from_id - 1) % 3)] = s
+        # TODO: @gianni What the actual fuck? Why does this work? Why do I need to use conn here and not s? If I use s then it says the socket closes.
+        sockets_dict[(from_id, (from_id - 1) % 3)] = conn
 
         # Receive data from the client
         while True:
@@ -54,8 +55,8 @@ def server(port, q, from_id, sockets_dict):
             q.put(data)
 
             # Send a response to the client
-            message = f"Hello, client! from {port}"
-            conn.send(message.encode())
+            # message = f"Hello, client! from {port}"
+            # conn.send(message.encode())
 
         # Close the connection
         conn.close()
@@ -65,11 +66,12 @@ def server(port, q, from_id, sockets_dict):
 def client(to_id, q, from_id, sockets_dict):
     port = PORTS[to_id]
     connected = False
+    # Create a socket object
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # Set the SO_REUSEADDR option
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
     while not connected:
-        # Create a socket object
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # Set the SO_REUSEADDR option
-        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         # Define the IP address to connect to
         host = "localhost"
@@ -103,6 +105,22 @@ def client(to_id, q, from_id, sockets_dict):
 
             # Wait for 1 second before trying again
             time.sleep(0.1)
+
+    # Receive data from the client
+    while True:
+        data = s.recv(1024).decode()
+        if not data:
+            print("breaking connection")
+            break
+
+        print(COLORS[from_id] + "Received from client:", data, "" + RESET)
+
+        # Add the message to the queue
+        q.put(data)
+
+        # Send a response to the client
+        # message = f"Hello, client! from {port}"
+        # s.send(message.encode())
 
     while True:
         # keep socket open
@@ -160,8 +178,8 @@ def virtual_machine(socks, id):
 
     time.sleep(3)
     print(sockets_dict)
-    s = sockets_dict[(from_id, (from_id + 1) % 3)]
-    message = f"HEYY Hello, {(from_id + 1) % 3}! from {from_id}"
+    s = sockets_dict[(from_id, (from_id - 1) % 3)]
+    message = f"HEYY Hello, {(from_id - 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
     time.sleep(0.1)
