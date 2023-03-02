@@ -251,7 +251,7 @@ if __name__ == "__main__":
     experiment_start_time = time.time()
 
     # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
-    random.seed(262)
+    random.seed(100)
 
     # Create a process for each virtual machine
     processes = []
@@ -259,7 +259,7 @@ if __name__ == "__main__":
         processes.append(
             multiprocessing.Process(
                 target=virtual_machine,
-                args=(id, experiment_start_time, random.randint(1, 6)),
+                args=(id, experiment_start_time, 6),
             )
         )
 
