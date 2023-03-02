@@ -98,13 +98,30 @@ def client(to_id, q, from_id, sockets_dict):
             # s.close()
 
             # Wait for 1 second before trying again
-            time.sleep(0.1)
+            time.sleep(1)
 
         except ConnectionRefusedError:
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
             # Wait for 1 second before trying again
-            time.sleep(0.1)
+            time.sleep(1)
+
+        except Exception as e:
+            # handle any other exception here
+            print("WHAT THE FUCKK????")
+
+            # Wait for 1 second before trying again
+            time.sleep(1)
+            # TODO: figure out why tf I'm getting this error: I think it's because it just needs to retry a couple times to connect in case the other server has not yet started. So, just doing this try except loop until it connects should be a sufficient solution. So don't need to do anything?
+            #             Exception in thread Thread-2:
+            # Traceback (most recent call last):
+            #   File "/Users/albertzhang/opt/anaconda3/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+            #     self.run()
+            #   File "/Users/albertzhang/opt/anaconda3/lib/python3.9/threading.py", line 917, in run
+            #     self._target(*self._args, **self._kwargs)
+            #   File "/Users/albertzhang/Library/CloudStorage/GoogleDrive-albert_zhang@college.harvard.edu/My Drive/Albert Harvard/Era-College v2/CS other/CS 262 Distributed Computing/cs262-logical-clocks/smulti2.py", line 81, in client
+            #     s.connect((host, port))
+            # OSError: [Errno 22] Invalid argument
 
     # Receive data from the client
     while True:
@@ -158,23 +175,13 @@ def virtual_machine(socks, id):
     )
     server_thread.start()
 
-    # # Start the server thread
-    # server_thread = threading.Thread(
-    #     target=server,
-    #     args=(PORTS[(id) % 3], message_queue, from_id),
-    # )
-    # server_thread.start()
-
+    # Give the servers enough time to start up
+    time.sleep(2)
     # Start the client threads
     client1_thread = threading.Thread(
         target=client, args=((id + 1) % 3, message_queue, from_id, sockets_dict)
     )
     client1_thread.start()
-
-    # client2_thread = threading.Thread(
-    #     target=client, args=((id + 2) % 3, message_queue, from_id, sockets_dict)
-    # )
-    # client2_thread.start()
 
     time.sleep(3)
     print(sockets_dict)
@@ -187,6 +194,12 @@ def virtual_machine(socks, id):
     message = f"BROOO Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
+
+    time.sleep(2)
+    print(COLORS[from_id] + str(message_queue), "" + RESET)
+    # print the contents of the queue
+    for item in list(message_queue.queue):
+        print(COLORS[from_id] + item, "" + RESET)
 
     # # Try to connect to the other virtual machines
     # try:
