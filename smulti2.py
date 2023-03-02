@@ -77,6 +77,7 @@ def client(to_id, q, from_id, sockets_dict):
         try:
             s.connect((host, port))
             connected = True
+            sockets_dict[(from_id, to_id)] = s
             print(COLORS[from_id] + "Connected to", host, "on port", port, "" + RESET)
 
             # Send a message to the peer
@@ -93,20 +94,18 @@ def client(to_id, q, from_id, sockets_dict):
             # # Close the connection
             # s.close()
 
-            sockets_dict[(from_id, to_id)] = s
-
             # Wait for 1 second before trying again
-            time.sleep(1)
-
-            while True:
-                # keep socket open
-                pass
+            time.sleep(0.1)
 
         except ConnectionRefusedError:
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
             # Wait for 1 second before trying again
-            time.sleep(1)
+            time.sleep(0.1)
+
+    while True:
+        # keep socket open
+        pass
 
 
 # Define a function to simulate a virtual machine
@@ -157,6 +156,10 @@ def virtual_machine(socks, id):
     message = f"HEYY Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
+    message = f"BROOO Hello, {(from_id + 1) % 3}! from {from_id}"
+    print(message)
+    s.send(message.encode())
+
     # # Try to connect to the other virtual machines
     # try:
     #     # Connect to the next virtual machine in the ring
