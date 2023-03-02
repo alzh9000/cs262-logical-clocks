@@ -20,7 +20,7 @@ PORTS = [50000, 50001, 50002]
 
 
 # Define the server function to listen on the specified port
-def server(port, q, from_id):
+def server(port, q, from_id, sockets_dict):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Set the SO_REUSEADDR option
@@ -39,6 +39,7 @@ def server(port, q, from_id):
     while True:
         conn, addr = s.accept()
         print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
+        sockets_dict[(from_id, (from_id - 1) % 3)] = s
 
         # Receive data from the client
         while True:
@@ -135,7 +136,7 @@ def virtual_machine(socks, id):
     # Start the server thread
     server_thread = threading.Thread(
         target=server,
-        args=(PORTS[(id) % 3], message_queue, from_id),
+        args=(PORTS[(id) % 3], message_queue, from_id, sockets_dict),
     )
     server_thread.start()
 
@@ -164,6 +165,7 @@ def virtual_machine(socks, id):
     print(message)
     s.send(message.encode())
     time.sleep(0.1)
+    s = sockets_dict[(from_id, (from_id + 1) % 3)]
     message = f"BROOO Hello, {(from_id + 1) % 3}! from {from_id}"
     print(message)
     s.send(message.encode())
