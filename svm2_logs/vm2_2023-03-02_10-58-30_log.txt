@@ -1,0 +1,2 @@
+Sent message Initialization message at 1677772717.955007 with logical clock 1
+Sent message Initialization message at 1677772717.955029 with logical clock 2

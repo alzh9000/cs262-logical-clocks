@@ -1,0 +1,30 @@
+Sent message Initialization message at 1677772626.927425 with logical clock 1
+Sent message Initialization message at 1677772626.927506 with logical clock 2
+Internal event occurred at 1677772627.5349388 with logical clock 3
+Received message 2 20 at 1677772642.5956879 with logical clock 21
+Sent message 0 21 at 1677772642.595736 with logical clock 22
+Received message 1 26 at 1677772644.600744 with logical clock 27
+Internal event occurred at 1677772644.600791 with logical clock 28
+Internal event occurred at 1677772645.605238 with logical clock 29
+Internal event occurred at 1677772646.610946 with logical clock 30
+Internal event occurred at 1677772647.6151779 with logical clock 31
+Internal event occurred at 1677772648.620051 with logical clock 32
+Internal event occurred at 1677772649.624395 with logical clock 33
+Internal event occurred at 1677772650.6261408 with logical clock 34
+Internal event occurred at 1677772651.6312692 with logical clock 35
+Received message 1 39 at 1677772655.637111 with logical clock 40
+Internal event occurred at 1677772655.637137 with logical clock 41
+Internal event occurred at 1677772656.639188 with logical clock 42
+Internal event occurred at 1677772657.642807 with logical clock 43
+Received message 1 50 at 1677772664.662313 with logical clock 51
+Internal event occurred at 1677772664.66238 with logical clock 52
+Internal event occurred at 1677772665.6644962 with logical clock 53
+Received message 2 57 at 1677772669.677671 with logical clock 58
+Internal event occurred at 1677772669.677731 with logical clock 59
+Internal event occurred at 1677772670.679359 with logical clock 60
+Internal event occurred at 1677772671.68081 with logical clock 61
+Internal event occurred at 1677772672.6865048 with logical clock 62
+Received message 1 64 at 1677772674.69531 with logical clock 65
+Internal event occurred at 1677772674.69534 with logical clock 66
+Sent message 0 66 at 1677772675.7021499 with logical clock 67
+Sent message 0 67 at 1677772675.702212 with logical clock 68

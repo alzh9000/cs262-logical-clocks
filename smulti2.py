@@ -145,7 +145,7 @@ def client(to_id, q, from_id, sockets_dict):
 
 
 # Define a function to simulate a virtual machine
-def virtual_machine(socks, id):
+def virtual_machine(id, experiment_start_time):
     # Initialize the logical clock value to 0
     logical_clock = 0
 
@@ -156,7 +156,8 @@ def virtual_machine(socks, id):
         # Create a subdirectory for this virtual machine's logs if it doesn't exist already
         os.makedirs(f"svm{id}_logs", exist_ok=True)
         # Create a log file for this virtual machine in its corresponding subdirectory
-        log_file = open(f"svm{id}_logs/vm{id}_log.txt", "w")
+        experiment_start_time_string = time.strftime('%m-%d_%H-%M-%S', time.localtime(experiment_start_time))
+        log_file = open(f"svm{id}_logs/vm{id}_{experiment_start_time_string}_log.txt", "w")
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
         print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
@@ -316,14 +317,16 @@ def process_events(sockets_dict, logical_clock, log_file, from_id):
 
 
 if __name__ == "__main__":
-    # Create a list to hold the sockets for each virtual machine
-    socks = []
+    # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
+    experiment_start_time = time.time()
 
     # Create a process for each virtual machine
     processes = []
     for id in range(3):
         processes.append(
-            multiprocessing.Process(target=virtual_machine, args=(socks, id))
+            multiprocessing.Process(
+                target=virtual_machine, args=(id, experiment_start_time)
+            )
         )
 
     # Start each process

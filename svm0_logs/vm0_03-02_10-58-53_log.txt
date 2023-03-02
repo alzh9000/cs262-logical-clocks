@@ -1,0 +1,11 @@
+Sent message Initialization message at 1677772740.948704 with logical clock 1
+Sent message Initialization message at 1677772740.9488142 with logical clock 2
+Internal event occurred at 1677772741.5570061 with logical clock 3
+Received message 1 5 at 1677772743.577346 with logical clock 6
+Internal event occurred at 1677772743.5773902 with logical clock 7
+Internal event occurred at 1677772744.5801039 with logical clock 8
+Sent message 0 8 at 1677772745.585472 with logical clock 9
+Internal event occurred at 1677772746.590531 with logical clock 10
+Internal event occurred at 1677772747.59263 with logical clock 11
+Internal event occurred at 1677772748.595454 with logical clock 12
+Internal event occurred at 1677772749.597386 with logical clock 13
