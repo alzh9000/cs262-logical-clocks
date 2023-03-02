@@ -21,17 +21,46 @@ def virtual_machine(socks, id):
         log_file = open(f"svm{id}_logs/vm{id}_log.txt", "w")
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
-        print(f"Error: {e}")
+        print(f"File Error: {e}")
         return
+
+    s = socks[id % 3]
+    s.bind((IP_ADDRESS, PORTS[id % 3]))
+    print(f"VM of id {id} Listening on port", port)
+
+    # Listen for incoming connections
+    s.listen()
+
+    # Accept incoming connections and handle them
+    while True:
+        conn, addr = s.accept()
+        print("Accepted connection from", addr)
+
+        # Receive data from the client
+        data = conn.recv(1024).decode()
+        print("Received from client:", data)
+
+        # Add the message to the queue
+        q.put(data)
+
+        # Send a response to the client
+        message = f"Hello, client! from {port}"
+        conn.send(message.encode())
+
+        # Close the connection
+        conn.close()
 
     # Try to connect to the other virtual machines
     try:
         # Connect to the next virtual machine in the ring
         next_sock = socks[(id + 1) % 3]
+        print((IP_ADDRESS, PORTS[(id + 1) % 3]))
         next_sock.connect((IP_ADDRESS, PORTS[(id + 1) % 3]))
+        print(f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 1) % 3]}")
         # Connect to the previous virtual machine in the ring
         prev_sock = socks[(id + 2) % 3]
         prev_sock.connect((IP_ADDRESS, PORTS[(id + 2) % 3]))
+        print(f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 2) % 3]}")
         # Send an initialization message to the next machine in the ring
         logical_clock = send_message(
             next_sock, "Initialization message", logical_clock, log_file
@@ -42,7 +71,7 @@ def virtual_machine(socks, id):
         )
     # If there was an error connecting to the other virtual machines, print an error message and return
     except socket.error as e:
-        print(f"Error: {e}")
+        print(f"Socket Error: {e}")
         return
 
     # Main loop for the virtual machine
@@ -135,8 +164,8 @@ if __name__ == "__main__":
     # Create a socket for each virtual machine and add it to the list
     for port in PORTS:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.bind((IP_ADDRESS, port))
-        sock.listen()
+        # sock.bind((IP_ADDRESS, port))
+        # sock.listen()
         socks.append(sock)
 
     # Create a process for each virtual machine
