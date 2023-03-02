@@ -9,6 +9,9 @@ def server(q):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+    # Set the SO_REUSEADDR option
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
     # Bind the socket to a port
     host = "localhost"
     port = args.server_port
@@ -27,8 +30,13 @@ def server(q):
         while True:
             data = conn.recv(1024)
             if not data:
+                print("breaking connection")
                 break
             print(f"Received: {data.decode()}")
+
+            # Send a response to the client
+            message = f"Hello, client! from {port}"
+            conn.send(message.encode())
         # # Receive data from the client
         # data = conn.recv(1024).decode()
         # print("Received from client:", data)
@@ -36,9 +44,9 @@ def server(q):
         # # Add the message to the queue
         # q.put(data)
 
-        # # Send a response to the client
-        # message = f"Hello, client! from {port}"
-        # conn.send(message.encode())
+        # Send a response to the client
+        message = f"Hello, client! from {port}"
+        conn.send(message.encode())
 
         # Close the connection
         conn.close()
@@ -50,6 +58,9 @@ def client(port, q):
     while not connected:
         # Create a socket object
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        # Set the SO_REUSEADDR option
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         # Define the IP address to connect to
         host = "localhost"
