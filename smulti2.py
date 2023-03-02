@@ -50,7 +50,7 @@ def server(port, q, from_id):
         conn.send(message.encode())
 
         # Close the connection
-        conn.close()
+        # conn.close()
 
 
 # Define the client function to connect to the specified port
@@ -84,10 +84,15 @@ def client(to_id, q, from_id, sockets_dict):
             # # Close the connection
             # s.close()
 
-            sockets_dict[(from_id, port)] = s
+            sockets_dict[(from_id, to_id)] = s
 
             # Wait for 1 second before trying again
             time.sleep(1)
+
+            # while True:
+            #     # keep socket open
+            #     pass
+
         except ConnectionRefusedError:
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
@@ -137,8 +142,12 @@ def virtual_machine(socks, id):
     )
     client2_thread.start()
 
-    time.sleep(2)
+    time.sleep(10)
     print(sockets_dict)
+    s = sockets_dict[(from_id, (from_id + 1) % 3)]
+    message = f"Hello, {(from_id + 1) % 3}! from {from_id}"
+    print(message)
+    s.send(message.encode())
     # # Try to connect to the other virtual machines
     # try:
     #     # Connect to the next virtual machine in the ring
