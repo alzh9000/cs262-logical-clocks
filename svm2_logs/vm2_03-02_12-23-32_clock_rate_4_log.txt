@@ -1,0 +1,62 @@
+Sent message Initialization message at global time (gotten from the system) 03-02_12-23-39 with logical clock time 1.
+Sent message Initialization message at global time (gotten from the system) 03-02_12-23-39 with logical clock time 2.
+Internal event occurred at global time (gotten from the system) 1677777820.4304461 with logical clock time 3.
+Internal event occurred at global time (gotten from the system) 1677777820.68082 with logical clock time 4.
+Sent message 2 4 at global time (gotten from the system) 03-02_12-23-40 with logical clock time 5.
+Internal event occurred at global time (gotten from the system) 1677777821.190829 with logical clock time 6.
+Received message 1 6 at global time (gotten from the system) 03-02_12-23-41 with logical clock time 7. The length of the message queue remaining is 0
+Sent message 2 7 at global time (gotten from the system) 03-02_12-23-41 with logical clock time 8.
+Internal event occurred at global time (gotten from the system) 1677777821.951595 with logical clock time 9.
+Internal event occurred at global time (gotten from the system) 1677777822.2052128 with logical clock time 10.
+Sent message 2 10 at global time (gotten from the system) 03-02_12-23-42 with logical clock time 11.
+Internal event occurred at global time (gotten from the system) 1677777822.712497 with logical clock time 12.
+Received message 0 10 at global time (gotten from the system) 03-02_12-23-42 with logical clock time 13. The length of the message queue remaining is 0
+Received message 1 15 at global time (gotten from the system) 03-02_12-23-43 with logical clock time 16. The length of the message queue remaining is 0
+Internal event occurred at global time (gotten from the system) 1677777823.47773 with logical clock time 17.
+Internal event occurred at global time (gotten from the system) 1677777823.73279 with logical clock time 18.
+Internal event occurred at global time (gotten from the system) 1677777823.9878569 with logical clock time 19.
+Sent message 2 19 at global time (gotten from the system) 03-02_12-23-44 with logical clock time 20.
+Internal event occurred at global time (gotten from the system) 1677777824.4980092 with logical clock time 21.
+Received message 1 22 at global time (gotten from the system) 03-02_12-23-44 with logical clock time 23. The length of the message queue remaining is 0
+Sent message 2 23 at global time (gotten from the system) 03-02_12-23-45 with logical clock time 24.
+Internal event occurred at global time (gotten from the system) 1677777825.263256 with logical clock time 25.
+Internal event occurred at global time (gotten from the system) 1677777825.515658 with logical clock time 26.
+Internal event occurred at global time (gotten from the system) 1677777825.770732 with logical clock time 27.
+Internal event occurred at global time (gotten from the system) 1677777826.025805 with logical clock time 28.
+Received message 1 30 at global time (gotten from the system) 03-02_12-23-46 with logical clock time 31. The length of the message queue remaining is 0
+Sent message 2 31 at global time (gotten from the system) 03-02_12-23-46 with logical clock time 32.
+Sent message 2 32 at global time (gotten from the system) 03-02_12-23-46 with logical clock time 33.
+Internal event occurred at global time (gotten from the system) 1677777826.790984 with logical clock time 34.
+Sent message 2 34 at global time (gotten from the system) 03-02_12-23-47 with logical clock time 35.
+Sent message 2 35 at global time (gotten from the system) 03-02_12-23-47 with logical clock time 36.
+Sent message 2 36 at global time (gotten from the system) 03-02_12-23-47 with logical clock time 37.
+Received message 1 38 at global time (gotten from the system) 03-02_12-23-47 with logical clock time 39. The length of the message queue remaining is 0
+Internal event occurred at global time (gotten from the system) 1677777828.057649 with logical clock time 40.
+Internal event occurred at global time (gotten from the system) 1677777828.310178 with logical clock time 41.
+Sent message 2 41 at global time (gotten from the system) 03-02_12-23-48 with logical clock time 42.
+Internal event occurred at global time (gotten from the system) 1677777828.820332 with logical clock time 43.
+Sent message 2 43 at global time (gotten from the system) 03-02_12-23-49 with logical clock time 44.
+Sent message 2 44 at global time (gotten from the system) 03-02_12-23-49 with logical clock time 45.
+Internal event occurred at global time (gotten from the system) 1677777829.3305779 with logical clock time 46.
+Sent message 2 46 at global time (gotten from the system) 03-02_12-23-49 with logical clock time 47.
+Sent message 2 47 at global time (gotten from the system) 03-02_12-23-49 with logical clock time 48.
+Sent message 2 48 at global time (gotten from the system) 03-02_12-23-49 with logical clock time 49.
+Internal event occurred at global time (gotten from the system) 1677777830.0915809 with logical clock time 50.
+Internal event occurred at global time (gotten from the system) 1677777830.346716 with logical clock time 51.
+Sent message 2 51 at global time (gotten from the system) 03-02_12-23-50 with logical clock time 52.
+Received message 1 53 at global time (gotten from the system) 03-02_12-23-50 with logical clock time 54. The length of the message queue remaining is 0
+Sent message 2 54 at global time (gotten from the system) 03-02_12-23-51 with logical clock time 55.
+Internal event occurred at global time (gotten from the system) 1677777831.36205 with logical clock time 56.
+Sent message 2 56 at global time (gotten from the system) 03-02_12-23-51 with logical clock time 57.
+Internal event occurred at global time (gotten from the system) 1677777831.8722801 with logical clock time 58.
+Internal event occurred at global time (gotten from the system) 1677777832.125172 with logical clock time 59.
+Internal event occurred at global time (gotten from the system) 1677777832.380264 with logical clock time 60.
+Sent message 2 60 at global time (gotten from the system) 03-02_12-23-52 with logical clock time 61.
+Received message 1 64 at global time (gotten from the system) 03-02_12-23-52 with logical clock time 65. The length of the message queue remaining is 0
+Received message 1 66 at global time (gotten from the system) 03-02_12-23-53 with logical clock time 67. The length of the message queue remaining is 0
+Internal event occurred at global time (gotten from the system) 1677777833.3977668 with logical clock time 68.
+Received message 0 69 at global time (gotten from the system) 03-02_12-23-53 with logical clock time 70. The length of the message queue remaining is 0
+Internal event occurred at global time (gotten from the system) 1677777833.907934 with logical clock time 71.
+Received message 1 72 at global time (gotten from the system) 03-02_12-23-54 with logical clock time 73. The length of the message queue remaining is 0
+Received message 0 72 at global time (gotten from the system) 03-02_12-23-54 with logical clock time 74. The length of the message queue remaining is 0
+Internal event occurred at global time (gotten from the system) 1677777834.6706839 with logical clock time 75.

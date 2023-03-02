@@ -260,7 +260,7 @@ def send_message(sock, msg, logical_clock, log_file):
     # update it’s own logical clock
     logical_clock += 1
     # update the log with the send, the system time, and the logical clock time
-    global_time_string = time.strftime("%m-%d_%H-%M-%S", time.time())
+    global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
     log_file.write(
         f"Sent message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
     )
@@ -313,7 +313,7 @@ def process_events(
         logical_clock = max(logical_clock, sender_clock) + 1
         # TODO: @gianni @angelloghernan for ur analysis, it might be easier to log to a CSV or parse this text output. it's not required by spec but might be easier for you
         # Write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time.
-        global_time_string = time.strftime("%m-%d_%H-%M-%S", time.time())
+        global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
         log_file.write(
             f"Received message {msg} at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}. The length of the message queue remaining is {message_queue.qsize()}\n"
         )
@@ -347,9 +347,9 @@ def process_events(
         # if the value is other than 1-3, treat the cycle as an internal event; update the local logical clock, and log the internal event, the system time, and the logical clock value.
         else:
             logical_clock += 1
-            global_time_string = time.strftime("%m-%d_%H-%M-%S", time.time())
+            global_time_string = time.strftime("%m-%d_%H-%M-%S.%f", time.localtime())
             log_file.write(
-                f"Internal event occurred at global time (gotten from the system) {time.time()} with logical clock time {logical_clock}.\n"
+                f"Internal event occurred at global time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
             )
 
     # TODO: check this works
