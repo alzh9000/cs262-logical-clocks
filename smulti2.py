@@ -6,13 +6,21 @@ import random
 import os
 import multiprocessing
 
+# Define terminal color codes
+COLORS = {
+    0: "\033[0;31m",  # Red
+    1: "\033[0;32m",  # Green
+    2: "\033[0;34m",  # Blue
+}
+RESET = "\033[0m"
+
 # Define the IP address and port numbers to use for the virtual machines
 IP_ADDRESS = "localhost"
 PORTS = [50000, 50001, 50002]
 
 
 # Define the server function to listen on the specified port
-def server(port, q):
+def server(port, q, from_id):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -20,7 +28,7 @@ def server(port, q):
     host = "localhost"
     port = port
     s.bind((host, port))
-    print("Listening on port", port)
+    print(COLORS[from_id] + "Listening on port", port, "" + RESET)
 
     # Listen for incoming connections
     s.listen()
@@ -28,11 +36,11 @@ def server(port, q):
     # Accept incoming connections and handle them
     while True:
         conn, addr = s.accept()
-        print("Accepted connection from", addr)
+        print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
 
         # Receive data from the client
         data = conn.recv(1024).decode()
-        print("Received from client:", data)
+        print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
         # Add the message to the queue
         q.put(data)
@@ -46,7 +54,7 @@ def server(port, q):
 
 
 # Define the client function to connect to the specified port
-def client(port, q):
+def client(port, q, from_id):
     connected = False
     while not connected:
         # Create a socket object
@@ -59,7 +67,7 @@ def client(port, q):
         try:
             s.connect((host, port))
             connected = True
-            print("Connected to", host, "on port", port)
+            print(COLORS[from_id] + "Connected to", host, "on port", port, "" + RESET)
 
             # Send a message to the peer
             message = f"Hello, peer! from {port}"
@@ -67,7 +75,7 @@ def client(port, q):
 
             # Receive a message from the peer
             data = s.recv(1024).decode()
-            print("Received from peer:", data)
+            print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
 
             # Add the message to the queue
             q.put(data)
@@ -78,7 +86,7 @@ def client(port, q):
             # Wait for 1 second before trying again
             time.sleep(5)
         except ConnectionRefusedError:
-            print("Connection refused on port", port)
+            print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
             # Wait for 1 second before trying again
             time.sleep(5)
@@ -89,6 +97,8 @@ def virtual_machine(socks, id):
     # Initialize the logical clock value to 0
     logical_clock = 0
 
+    from_id = id
+
     # Try to create a log file for this virtual machine's events
     try:
         # Create a subdirectory for this virtual machine's logs if it doesn't exist already
@@ -97,7 +107,7 @@ def virtual_machine(socks, id):
         log_file = open(f"svm{id}_logs/vm{id}_log.txt", "w")
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
-        print(f"File Error: {e}")
+        print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
         return
 
     # Create a message queue to store messages from clients
@@ -106,27 +116,24 @@ def virtual_machine(socks, id):
     # Start the server thread
     server_thread = threading.Thread(
         target=server,
-        args=(
-            PORTS[(id) % 3],
-            message_queue,
-        ),
+        args=(PORTS[(id) % 3], message_queue, from_id),
     )
     server_thread.start()
 
     # Start the client threads
     client1_thread = threading.Thread(
-        target=client, args=(PORTS[(id + 1) % 3], message_queue)
+        target=client, args=(PORTS[(id + 1) % 3], message_queue, from_id)
     )
     client1_thread.start()
 
     client2_thread = threading.Thread(
-        target=client, args=(PORTS[(id + 2) % 3], message_queue)
+        target=client, args=(PORTS[(id + 2) % 3], message_queue, from_id)
     )
     client2_thread.start()
 
     # s = socks[id % 3]
     # s.bind((IP_ADDRESS, PORTS[id % 3]))
-    # print(f"VM of id {id} Listening on port", port)
+    # print(COLORS[from_id] + f"VM of id {id} Listening on port", port, "" + RESET)
 
     # # Listen for incoming connections
     # s.listen()
@@ -134,11 +141,11 @@ def virtual_machine(socks, id):
     # # Accept incoming connections and handle them
     # while True:
     #     conn, addr = s.accept()
-    #     print("Accepted connection from", addr)
+    #     print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
 
     #     # Receive data from the client
     #     data = conn.recv(1024).decode()
-    #     print("Received from client:", data)
+    #     print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
     #     # Add the message to the queue
     #     q.put(data)
@@ -154,13 +161,13 @@ def virtual_machine(socks, id):
     # try:
     #     # Connect to the next virtual machine in the ring
     #     next_sock = socks[(id + 1) % 3]
-    #     print((IP_ADDRESS, PORTS[(id + 1) % 3]))
+    #     print(COLORS[from_id] + (IP_ADDRESS, PORTS[(id + 1) % 3]), "" + RESET)
     #     next_sock.connect((IP_ADDRESS, PORTS[(id + 1) % 3]))
-    #     print(f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 1) % 3]}")
+    #     print(COLORS[from_id] + f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 1) % 3]}")
     #     # Connect to the previous virtual machine in the ring
     #     prev_sock = socks[(id + 2) % 3]
     #     prev_sock.connect((IP_ADDRESS, PORTS[(id + 2) % 3]))
-    #     print(f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 2) % 3]}")
+    #     print(COLORS[from_id] + f"VM of id {id} connected to {IP_ADDRESS}:{PORTS[(id + 2) % 3]}")
     #     # Send an initialization message to the next machine in the ring
     #     logical_clock = send_message(
     #         next_sock, "Initialization message", logical_clock, log_file
@@ -171,7 +178,7 @@ def virtual_machine(socks, id):
     #     )
     # # If there was an error connecting to the other virtual machines, print an error message and return
     # except socket.error as e:
-    #     print(f"Socket Error: {e}")
+    #     print(COLORS[from_id] + f"Socket Error: {e}")
     #     return
 
     # # Main loop for the virtual machine
