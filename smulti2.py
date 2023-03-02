@@ -54,7 +54,8 @@ def server(port, q, from_id):
 
 
 # Define the client function to connect to the specified port
-def client(port, q, from_id):
+def client(to_id, q, from_id, sockets_dict):
+    port = PORTS[to_id]
     connected = False
     while not connected:
         # Create a socket object
@@ -70,7 +71,7 @@ def client(port, q, from_id):
             print(COLORS[from_id] + "Connected to", host, "on port", port, "" + RESET)
 
             # Send a message to the peer
-            message = f"Hello, peer! from {port}"
+            message = f"Hello, peer! from {PORTS[from_id]}"
             s.send(message.encode())
 
             # Receive a message from the peer
@@ -80,8 +81,10 @@ def client(port, q, from_id):
             # Add the message to the queue
             q.put(data)
 
-            # Close the connection
-            s.close()
+            # # Close the connection
+            # s.close()
+
+            sockets_dict[(from_id, port)] = s
 
             # Wait for 1 second before trying again
             time.sleep(1)
@@ -89,7 +92,7 @@ def client(port, q, from_id):
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
             # Wait for 1 second before trying again
-            time.sleep(5)
+            time.sleep(1)
 
 
 # Define a function to simulate a virtual machine
@@ -113,6 +116,9 @@ def virtual_machine(socks, id):
     # Create a message queue to store messages from clients
     message_queue = queue.Queue()
 
+    # TODO: @gianni do we need to add mutexes or locks for when we're adding sockets to the dictionary in our threads? since client1 and client2 threads can both access at same time
+    sockets_dict = {}
+
     # Start the server thread
     server_thread = threading.Thread(
         target=server,
@@ -122,41 +128,17 @@ def virtual_machine(socks, id):
 
     # Start the client threads
     client1_thread = threading.Thread(
-        target=client, args=(PORTS[(id + 1) % 3], message_queue, from_id)
+        target=client, args=((id + 1) % 3, message_queue, from_id, sockets_dict)
     )
     client1_thread.start()
 
     client2_thread = threading.Thread(
-        target=client, args=(PORTS[(id + 2) % 3], message_queue, from_id)
+        target=client, args=((id + 2) % 3, message_queue, from_id, sockets_dict)
     )
     client2_thread.start()
 
-    # s = socks[id % 3]
-    # s.bind((IP_ADDRESS, PORTS[id % 3]))
-    # print(COLORS[from_id] + f"VM of id {id} Listening on port", port, "" + RESET)
-
-    # # Listen for incoming connections
-    # s.listen()
-
-    # # Accept incoming connections and handle them
-    # while True:
-    #     conn, addr = s.accept()
-    #     print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
-
-    #     # Receive data from the client
-    #     data = conn.recv(1024).decode()
-    #     print(COLORS[from_id] + "Received from client:", data, "" + RESET)
-
-    #     # Add the message to the queue
-    #     q.put(data)
-
-    #     # Send a response to the client
-    #     message = f"Hello, client! from {port}"
-    #     conn.send(message.encode())
-
-    #     # Close the connection
-    #     conn.close()
-
+    time.sleep(2)
+    print(sockets_dict)
     # # Try to connect to the other virtual machines
     # try:
     #     # Connect to the next virtual machine in the ring
