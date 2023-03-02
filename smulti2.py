@@ -139,16 +139,23 @@ def virtual_machine(socks, id):
     )
     server_thread.start()
 
+    # # Start the server thread
+    # server_thread = threading.Thread(
+    #     target=server,
+    #     args=(PORTS[(id) % 3], message_queue, from_id),
+    # )
+    # server_thread.start()
+
     # Start the client threads
     client1_thread = threading.Thread(
         target=client, args=((id + 1) % 3, message_queue, from_id, sockets_dict)
     )
     client1_thread.start()
 
-    client2_thread = threading.Thread(
-        target=client, args=((id + 2) % 3, message_queue, from_id, sockets_dict)
-    )
-    client2_thread.start()
+    # client2_thread = threading.Thread(
+    #     target=client, args=((id + 2) % 3, message_queue, from_id, sockets_dict)
+    # )
+    # client2_thread.start()
 
     time.sleep(3)
     print(sockets_dict)
