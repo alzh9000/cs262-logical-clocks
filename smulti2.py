@@ -197,9 +197,9 @@ def virtual_machine(socks, id):
 
     time.sleep(2)
     print(COLORS[from_id] + str(message_queue), "" + RESET)
-    # print the contents of the queue
-    for item in list(message_queue.queue):
-        print(COLORS[from_id] + item, "" + RESET)
+    # print and remove the contents of the queue
+    while not message_queue.empty():
+        print(COLORS[from_id] + "", message_queue.get(), "" + RESET)
 
     # Connect to the next virtual machine in the ring
     next_sock = sockets_dict[(from_id, (from_id + 1) % 3)]
@@ -214,6 +214,14 @@ def virtual_machine(socks, id):
         prev_sock, "Initialization message", logical_clock, log_file
     )
 
+    time.sleep(0.2)
+    # print and remove the contents of the queue
+    while not message_queue.empty():
+        print(COLORS[from_id] + "", message_queue.get(), "" + RESET)
+
+    print(f"Logical clock value: {logical_clock}")
+
+    time.sleep(0.4)
     # Main loop for the virtual machine
     while True:
         # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
@@ -279,23 +287,23 @@ def process_events(sockets_dict, logical_clock, log_file, from_id):
     if event == 1:
         sock = sockets_dict[(from_id, (from_id + 1) % 3)]
         logical_clock = send_message(
-            sock, f"{id} {logical_clock}", logical_clock, log_file
+            sock, f"{from_id} {logical_clock}", logical_clock, log_file
         )
     # If the event is 2, send a message to the next machine in the ring with the current logical clock value
     elif event == 2:
         sock = sockets_dict[(from_id, (from_id - 1) % 3)]
         logical_clock = send_message(
-            sock, f"{id} {logical_clock}", logical_clock, log_file
+            sock, f"{from_id} {logical_clock}", logical_clock, log_file
         )
     # If the event is 3, send a message to both other machines in the ring with the current logical clock value
     elif event == 3:
         sock1 = sockets_dict[(from_id, (from_id + 1) % 3)]
         sock2 = sockets_dict[(from_id, (from_id - 1) % 3)]
         logical_clock = send_message(
-            sock1, f"{id} {logical_clock}", logical_clock, log_file
+            sock1, f"{from_id} {logical_clock}", logical_clock, log_file
         )
         logical_clock = send_message(
-            sock2, f"{id} {logical_clock}", logical_clock, log_file
+            sock2, f"{from_id} {logical_clock}", logical_clock, log_file
         )
     # If the event is any other number between 4 and 10, just increment the local logical clock value and write a log entry for an internal event
     else:
