@@ -89,7 +89,7 @@ def client(port, q, from_id):
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
             # Wait for 1 second before trying again
-            time.sleep(5)
+            time.sleep(1)
 
 
 # Define a function to simulate a virtual machine
