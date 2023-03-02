@@ -21,7 +21,7 @@ PORTS = [50000, 50001, 50002]
 
 
 # Define the server function to listen on the specified port
-def server(port, q, from_id, sockets_dict):
+def server(port, message_queue, from_id, sockets_dict):
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Set the SO_REUSEADDR option
@@ -30,7 +30,7 @@ def server(port, q, from_id, sockets_dict):
     # Bind the socket to a port
     host = "localhost"
     port = port
-    s.bind((host, port))
+    s.bind((IP_ADDRESS, port))
     print(COLORS[from_id] + "Listening on port", port, "" + RESET)
 
     # Listen for incoming connections
@@ -53,7 +53,7 @@ def server(port, q, from_id, sockets_dict):
             print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
             # Add the message to the queue
-            q.put(data)
+            message_queue.put(data)
 
             # Send a response to the client
             # message = f"Hello, client! from {port}"
@@ -63,82 +63,43 @@ def server(port, q, from_id, sockets_dict):
         conn.close()
 
 
-# Define the client function to connect to the specified port
-def client(to_id, q, from_id, sockets_dict):
+# Connects virtual machine with from_id to the specified port for virtual machine with to_id
+def client(to_id, message_queue, from_id, sockets_dict):
     port = PORTS[to_id]
     connected = False
-    # Create a socket object
+    # Create a socket object, our socket code is based on online documentation
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # Set the SO_REUSEADDR option
+    # Set the SO_REUSEADDR option. It can help to avoid errors and make our code more robust, especially in situations where sockets are frequently opened and closed.
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     while not connected:
-
-        # Define the IP address to connect to
-        host = "localhost"
-
-        # Connect to the peer
+        # Connect to the other virtual machine
         try:
-            s.connect((host, port))
+            s.connect((IP_ADDRESS, port))
             connected = True
             sockets_dict[(from_id, to_id)] = s
-            print(COLORS[from_id] + "Connected to", host, "on port", port, "" + RESET)
 
-            # Send a message to the peer
-            message = f"Hello, peer! from {PORTS[from_id]}"
-            s.send(message.encode())
-
-            # # Receive a message from the peer
-            # data = s.recv(1024).decode()
-            # print(COLORS[from_id] + "Received from peer:", data, "" + RESET)
-
-            # # Add the message to the queue
-            # q.put(data)
-
-            # # Close the connection
-            # s.close()
-
-            # Wait for 1 second before trying again
-            time.sleep(1)
+            # Wait before trying again
+            time.sleep(0.2)
 
         except ConnectionRefusedError:
             print(COLORS[from_id] + "Connection refused on port", port, "" + RESET)
 
-            # Wait for 1 second before trying again
-            time.sleep(1)
+            # Wait before trying again
+            time.sleep(0.2)
 
-        except Exception as e:
-            # handle any other exception here
-            print("WHAT THE FUCKK????")
-
-            # Wait for 1 second before trying again
-            time.sleep(1)
-            # TODO: figure out why tf I'm getting this error: I think it's because it just needs to retry a couple times to connect in case the other server has not yet started. So, just doing this try except loop until it connects should be a sufficient solution. So don't need to do anything?
-            #             Exception in thread Thread-2:
-            # Traceback (most recent call last):
-            #   File "/Users/albertzhang/opt/anaconda3/lib/python3.9/threading.py", line 980, in _bootstrap_inner
-            #     self.run()
-            #   File "/Users/albertzhang/opt/anaconda3/lib/python3.9/threading.py", line 917, in run
-            #     self._target(*self._args, **self._kwargs)
-            #   File "/Users/albertzhang/Library/CloudStorage/GoogleDrive-albert_zhang@college.harvard.edu/My Drive/Albert Harvard/Era-College v2/CS other/CS 262 Distributed Computing/cs262-logical-clocks/smulti2.py", line 81, in client
-            #     s.connect((host, port))
-            # OSError: [Errno 22] Invalid argument
-
-    # Receive data from the client
+    # Receive data from the virtual machine we're connected to
     while True:
         data = s.recv(1024).decode()
         if not data:
             print("breaking connection")
             break
 
+        # Used for debugging and testing purposes. TODO: can remove later
         print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
-        # Add the message to the queue
-        q.put(data)
-
-        # Send a response to the client
-        # message = f"Hello, client! from {port}"
-        # s.send(message.encode())
+        # Add the message to the message queue
+        message_queue.put(data)
 
     while True:
         # keep socket open
@@ -267,13 +228,13 @@ def send_message(sock, msg, logical_clock, log_file):
 #     # Try to receive a message from the other virtual machine
 #     # try:
 #     # get an item from the queue if it's not empty
-#     if not q.empty():
-#         item = q.get()
+#     if not message_queue.empty():
+#         item = message_queue.get()
 #         print(item)
 #         # Receive the message and decode it
 #         # TODO
 #         # msg = sock.recv(1024).decode()
-#         msg = q.get()
+#         msg = message_queue.get()
 #         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
 #         sender_clock = int(msg.split()[1])
 #         logical_clock = max(logical_clock, sender_clock) + 1
