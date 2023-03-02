@@ -1,0 +1,59 @@
+Sent message Initialization message at 1677773293.469561 with logical clock 1
+Sent message Initialization message at 1677773293.4697511 with logical clock 2
+Internal event occurred at 1677773294.080666 with logical clock 3
+Internal event occurred at 1677773294.4179358 with logical clock 4
+Received message 1 7 at 1677773294.896188 with logical clock 8
+Internal event occurred at 1677773294.896202 with logical clock 9
+Received message 2 17 at 1677773296.9365718 with logical clock 18
+Internal event occurred at 1677773296.936607 with logical clock 19
+Internal event occurred at 1677773297.274814 with logical clock 20
+Received message 1 26 at 1677773298.354593 with logical clock 27
+Internal event occurred at 1677773298.354607 with logical clock 28
+Internal event occurred at 1677773298.693002 with logical clock 29
+Internal event occurred at 1677773299.0295649 with logical clock 30
+Received message 2 39 at 1677773301.046261 with logical clock 40
+Sent message 0 40 at 1677773301.046307 with logical clock 41
+Received message 2 42 at 1677773301.552525 with logical clock 43
+Internal event occurred at 1677773301.552541 with logical clock 44
+Internal event occurred at 1677773301.885957 with logical clock 45
+Internal event occurred at 1677773302.223087 with logical clock 46
+Internal event occurred at 1677773302.5614998 with logical clock 47
+Received message 1 49 at 1677773302.899936 with logical clock 50
+Internal event occurred at 1677773302.899966 with logical clock 51
+Internal event occurred at 1677773303.237385 with logical clock 52
+Received message 1 54 at 1677773303.5881898 with logical clock 55
+Internal event occurred at 1677773303.588203 with logical clock 56
+Internal event occurred at 1677773303.9249961 with logical clock 57
+Sent message 0 57 at 1677773304.262775 with logical clock 58
+Sent message 0 58 at 1677773304.262789 with logical clock 59
+Internal event occurred at 1677773304.601194 with logical clock 60
+Received message 2 63 at 1677773305.282673 with logical clock 64
+Internal event occurred at 1677773305.282686 with logical clock 65
+Sent message 0 65 at 1677773305.617929 with logical clock 66
+Sent message 0 66 at 1677773305.954287 with logical clock 67
+Sent message 0 67 at 1677773305.954299 with logical clock 68
+Received message 2 70 at 1677773306.463126 with logical clock 71
+Internal event occurred at 1677773306.463142 with logical clock 72
+Internal event occurred at 1677773306.801528 with logical clock 73
+Received message 1 80 at 1677773307.944342 with logical clock 81
+Internal event occurred at 1677773307.9443588 with logical clock 82
+Internal event occurred at 1677773308.279809 with logical clock 83
+Received message 1 90 at 1677773309.612 with logical clock 91
+Internal event occurred at 1677773309.6120162 with logical clock 92
+Received message 1 98 at 1677773311.0375428 with logical clock 99
+Internal event occurred at 1677773311.037558 with logical clock 100
+Internal event occurred at 1677773311.376 with logical clock 101
+Internal event occurred at 1677773311.7103739 with logical clock 102
+Internal event occurred at 1677773312.045739 with logical clock 103
+Received message 1 107 at 1677773312.662108 with logical clock 108
+Internal event occurred at 1677773312.662122 with logical clock 109
+Internal event occurred at 1677773312.996418 with logical clock 110
+Internal event occurred at 1677773313.3348281 with logical clock 111
+Received message 2 112 at 1677773313.927412 with logical clock 113
+Internal event occurred at 1677773313.9274309 with logical clock 114
+Sent message 0 114 at 1677773314.26321 with logical clock 115
+Sent message 0 115 at 1677773314.263223 with logical clock 116
+Internal event occurred at 1677773314.5969799 with logical clock 117
+Internal event occurred at 1677773314.9353988 with logical clock 118
+Internal event occurred at 1677773315.2738078 with logical clock 119
+Received message 1 123 at 1677773315.611302 with logical clock 124

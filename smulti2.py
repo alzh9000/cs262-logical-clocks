@@ -145,7 +145,7 @@ def client(to_id, q, from_id, sockets_dict):
 
 
 # Define a function to simulate a virtual machine
-def virtual_machine(id, experiment_start_time):
+def virtual_machine(id, experiment_start_time, clock_rate):
     # Initialize the logical clock value to 0
     logical_clock = 0
 
@@ -156,8 +156,13 @@ def virtual_machine(id, experiment_start_time):
         # Create a subdirectory for this virtual machine's logs if it doesn't exist already
         os.makedirs(f"svm{id}_logs", exist_ok=True)
         # Create a log file for this virtual machine in its corresponding subdirectory
-        experiment_start_time_string = time.strftime('%m-%d_%H-%M-%S', time.localtime(experiment_start_time))
-        log_file = open(f"svm{id}_logs/vm{id}_{experiment_start_time_string}_log.txt", "w")
+        experiment_start_time_string = time.strftime(
+            "%m-%d_%H-%M-%S", time.localtime(experiment_start_time)
+        )
+        log_file = open(
+            f"svm{id}_logs/vm{id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
+            "w",
+        )
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
         print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
@@ -225,17 +230,19 @@ def virtual_machine(id, experiment_start_time):
     time.sleep(0.4)
     # Main loop for the virtual machine
     while True:
-        # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
-        logical_clock = receive_message(
-            next_sock, logical_clock, log_file, message_queue
-        )
-        logical_clock = receive_message(
-            prev_sock, logical_clock, log_file, message_queue
-        )
+        # # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
+        # logical_clock = receive_message(
+        #     next_sock, logical_clock, log_file, message_queue
+        # )
+        # logical_clock = receive_message(
+        #     prev_sock, logical_clock, log_file, message_queue
+        # )
         # Generate events and update the logical clock value based on the outcome of the events
-        logical_clock = process_events(sockets_dict, logical_clock, log_file, from_id)
-        # Wait for one second before checking for messages and generating events again
-        time.sleep(1)
+        logical_clock = process_events(
+            sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
+        )
+        # # Wait for one second before checking for messages and generating events again
+        # time.sleep(1)
 
 
 # Define a function to send a message to another virtual machine
@@ -281,37 +288,61 @@ def receive_message(sock, logical_clock, log_file, q):
 
 
 # Define a function to generate events and update the logical clock accordingly
-def process_events(sockets_dict, logical_clock, log_file, from_id):
-    # Generate a random integer between 1 and 10 to decide what event to perform
-    event = random.randint(1, 10)
-    # If the event is 1, send a message to another machine with the current logical clock value
-    if event == 1:
-        sock = sockets_dict[(from_id, (from_id + 1) % 3)]
-        logical_clock = send_message(
-            sock, f"{from_id} {logical_clock}", logical_clock, log_file
-        )
-    # If the event is 2, send a message to the next machine in the ring with the current logical clock value
-    elif event == 2:
-        sock = sockets_dict[(from_id, (from_id - 1) % 3)]
-        logical_clock = send_message(
-            sock, f"{from_id} {logical_clock}", logical_clock, log_file
-        )
-    # If the event is 3, send a message to both other machines in the ring with the current logical clock value
-    elif event == 3:
-        sock1 = sockets_dict[(from_id, (from_id + 1) % 3)]
-        sock2 = sockets_dict[(from_id, (from_id - 1) % 3)]
-        logical_clock = send_message(
-            sock1, f"{from_id} {logical_clock}", logical_clock, log_file
-        )
-        logical_clock = send_message(
-            sock2, f"{from_id} {logical_clock}", logical_clock, log_file
-        )
-    # If the event is any other number between 4 and 10, just increment the local logical clock value and write a log entry for an internal event
-    else:
-        logical_clock += 1
+def process_events(
+    sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
+):
+    # Track how long this function takes to run so we know how long to wait before running it again to maintain the desired clock rate better
+    start_time = time.time()
+
+    if not message_queue.empty():
+        # Receive the message and decode it
+        # TODO
+        # msg = sock.recv(1024).decode()
+        msg = message_queue.get()
+        # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
+        sender_clock = int(msg.split()[1])
+        logical_clock = max(logical_clock, sender_clock) + 1
+        # Write a log entry for the received message
         log_file.write(
-            f"Internal event occurred at {time.time()} with logical clock {logical_clock}\n"
+            f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
         )
+    else:
+        # Generate a random integer between 1 and 10 to decide what event to perform
+        event = random.randint(1, 10)
+        # If the event is 1, send a message to another machine with the current logical clock value
+        if event == 1:
+            sock = sockets_dict[(from_id, (from_id + 1) % 3)]
+            logical_clock = send_message(
+                sock, f"{from_id} {logical_clock}", logical_clock, log_file
+            )
+        # If the event is 2, send a message to the next machine in the ring with the current logical clock value
+        elif event == 2:
+            sock = sockets_dict[(from_id, (from_id - 1) % 3)]
+            logical_clock = send_message(
+                sock, f"{from_id} {logical_clock}", logical_clock, log_file
+            )
+        # If the event is 3, send a message to both other machines in the ring with the current logical clock value
+        elif event == 3:
+            sock1 = sockets_dict[(from_id, (from_id + 1) % 3)]
+            sock2 = sockets_dict[(from_id, (from_id - 1) % 3)]
+            logical_clock = send_message(
+                sock1, f"{from_id} {logical_clock}", logical_clock, log_file
+            )
+            logical_clock = send_message(
+                sock2, f"{from_id} {logical_clock}", logical_clock, log_file
+            )
+        # If the event is any other number between 4 and 10, just increment the local logical clock value and write a log entry for an internal event
+        else:
+            logical_clock += 1
+            log_file.write(
+                f"Internal event occurred at {time.time()} with logical clock {logical_clock}\n"
+            )
+
+    # TODO: check this works
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    time.sleep((1 / clock_rate) - elapsed_time)
+
     # Return the updated logical clock value
     return logical_clock
 
@@ -320,12 +351,16 @@ if __name__ == "__main__":
     # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
     experiment_start_time = time.time()
 
+    # TODO: can remove this later if want to. Keep right now for consistency when testing.
+    random.seed(262)
+
     # Create a process for each virtual machine
     processes = []
     for id in range(3):
         processes.append(
             multiprocessing.Process(
-                target=virtual_machine, args=(id, experiment_start_time)
+                target=virtual_machine,
+                args=(id, experiment_start_time, random.randint(1, 6)),
             )
         )
 
