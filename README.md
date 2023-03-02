@@ -1,3 +1,6 @@
+"each vm is only connecting to 1 other vm instead of 2,
+ this solved the earlier problem. GOATED"
+
 # Usage
 python peer.py -s 11111 -p1 22222 -p2 33333
 python peer.py -s 22222 -p1 33333 -p2 11111
