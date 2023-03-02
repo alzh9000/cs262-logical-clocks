@@ -22,14 +22,12 @@ PORTS = [50000, 50001, 50002]
 
 # Define the server function to listen on the specified port
 def server(port, message_queue, from_id, sockets_dict):
-    # Create a socket object
+    # Create a socket object, our socket code is based on online documentation
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # Set the SO_REUSEADDR option
+    # Set the SO_REUSEADDR option. It can help to avoid errors and make our code more robust, especially in situations where sockets are frequently opened and closed.
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     # Bind the socket to a port
-    host = "localhost"
-    port = port
     s.bind((IP_ADDRESS, port))
     print(COLORS[from_id] + "Listening on port", port, "" + RESET)
 
@@ -40,24 +38,21 @@ def server(port, message_queue, from_id, sockets_dict):
     while True:
         conn, addr = s.accept()
         print(COLORS[from_id] + "Accepted connection from", addr, "" + RESET)
-        # TODO: @gianni What the actual fuck? Why does this work? Why do I need to use conn here and not s? If I use s then it says the socket closes.
+        # Store the socket in the sockets dictionary with label for which virtual machines are connected so we can use it in the main thread
         sockets_dict[(from_id, (from_id - 1) % 3)] = conn
 
-        # Receive data from the client
+        # Receive data from the other virtual machine that connected to this virtual machine
         while True:
             data = conn.recv(1024).decode()
             if not data:
                 print("breaking connection")
                 break
 
+            # Used for debugging and testing purposes. TODO: can remove later
             print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
-            # Add the message to the queue
+            # Add the message to the message queue
             message_queue.put(data)
-
-            # Send a response to the client
-            # message = f"Hello, client! from {port}"
-            # conn.send(message.encode())
 
         # Close the connection
         conn.close()
@@ -77,6 +72,7 @@ def client(to_id, message_queue, from_id, sockets_dict):
         try:
             s.connect((IP_ADDRESS, port))
             connected = True
+            # Store the socket in the sockets dictionary with label for which virtual machines are connected so we can use it in the main thread
             sockets_dict[(from_id, to_id)] = s
 
             # Wait before trying again
