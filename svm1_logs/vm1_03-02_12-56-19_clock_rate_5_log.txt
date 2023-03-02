@@ -1,2 +1,0 @@
-Sent message Initialization message at global UTC time (gotten from the system) 03-02_17-56-23.570417 with logical clock time 1.
-Sent message Initialization message at global UTC time (gotten from the system) 03-02_17-56-23.570869 with logical clock time 2.

@@ -110,13 +110,13 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
     # Try to create a log file for this virtual machine's events
     try:
         # Create a subdirectory for this virtual machine's logs if it doesn't exist already
-        os.makedirs(f"svm{from_id}_logs", exist_ok=True)
+        os.makedirs(f"virtual_machine_{from_id}_logs", exist_ok=True)
         # Create a log file for this virtual machine in its corresponding subdirectory with useful information in the file name
         experiment_start_time_string = time.strftime(
             "%m-%d_%H-%M-%S", time.localtime(experiment_start_time)
         )
         log_file = open(
-            f"svm{from_id}_logs/vm{from_id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
+            f"virtual_machine_{from_id}_logs/vm{from_id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
             "w",
         )
     # If there was an error creating the log file, print an error message and return
