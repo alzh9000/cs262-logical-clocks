@@ -299,13 +299,6 @@ if __name__ == "__main__":
     # Create a list to hold the sockets for each virtual machine
     socks = []
 
-    # # Create a socket for each virtual machine and add it to the list
-    # for port in PORTS:
-    #     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #     # sock.bind((IP_ADDRESS, port))
-    #     # sock.listen()
-    #     socks.append(sock)
-
     # Create a process for each virtual machine
     processes = []
     for id in range(3):
