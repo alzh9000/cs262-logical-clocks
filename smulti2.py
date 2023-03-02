@@ -229,7 +229,8 @@ def virtual_machine(id, experiment_start_time, clock_rate):
 
     time.sleep(0.4)
     # Main loop for the virtual machine
-    while True:
+    # Run for 120 seconds. TODO: we could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
+    while time.time() - experiment_start_time < 120:
         # # Receive messages from the next and previous virtual machines in the ring, updating the logical clock value accordingly
         # logical_clock = receive_message(
         #     next_sock, logical_clock, log_file, message_queue
@@ -258,33 +259,33 @@ def send_message(sock, msg, logical_clock, log_file):
     return logical_clock
 
 
-# Define a function to receive a message from another virtual machine
-def receive_message(sock, logical_clock, log_file, q):
-    # Try to receive a message from the other virtual machine
-    # try:
-    # get an item from the queue if it's not empty
-    if not q.empty():
-        item = q.get()
-        print(item)
-        # Receive the message and decode it
-        # TODO
-        # msg = sock.recv(1024).decode()
-        msg = q.get()
-        # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
-        sender_clock = int(msg.split()[1])
-        logical_clock = max(logical_clock, sender_clock) + 1
-        # Write a log entry for the received message
-        log_file.write(
-            f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
-        )
-    # # If there was an error receiving the message, just increment the local logical clock value and write a log entry for no message being received
-    # except socket.error:
-    #     logical_clock += 1
-    #     log_file.write(
-    #         f"No message received at {time.time()} with logical clock {logical_clock}\n"
-    #     )
-    # Return the updated logical clock value
-    return logical_clock
+# # Define a function to receive a message from another virtual machine
+# def receive_message(sock, logical_clock, log_file, q):
+#     # Try to receive a message from the other virtual machine
+#     # try:
+#     # get an item from the queue if it's not empty
+#     if not q.empty():
+#         item = q.get()
+#         print(item)
+#         # Receive the message and decode it
+#         # TODO
+#         # msg = sock.recv(1024).decode()
+#         msg = q.get()
+#         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
+#         sender_clock = int(msg.split()[1])
+#         logical_clock = max(logical_clock, sender_clock) + 1
+#         # Write a log entry for the received message
+#         log_file.write(
+#             f"Received message {msg} at {time.time()} with logical clock {logical_clock}\n"
+#         )
+#     # # If there was an error receiving the message, just increment the local logical clock value and write a log entry for no message being received
+#     # except socket.error:
+#     #     logical_clock += 1
+#     #     log_file.write(
+#     #         f"No message received at {time.time()} with logical clock {logical_clock}\n"
+#     #     )
+#     # Return the updated logical clock value
+#     return logical_clock
 
 
 # Define a function to generate events and update the logical clock accordingly
@@ -351,7 +352,7 @@ if __name__ == "__main__":
     # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
     experiment_start_time = time.time()
 
-    # TODO: can remove this later if want to. Keep right now for consistency when testing.
+    # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
     random.seed(262)
 
     # Create a process for each virtual machine
