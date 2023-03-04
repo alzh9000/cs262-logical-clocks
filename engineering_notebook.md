@@ -12,4 +12,11 @@
 # Day 3: 3-2
 - Project is officially finished, besides unit testing. Added comments for clarity; otherwise, everything is done.
 
+# Design
+- There are only two interesting parts of the design, involving the ordering of the VMs connections and the message queue.
+- By the nature of sockets, one end needs to be listening *before* a connection is initiated, while the other side needs to connect *after* the other end has started listening.
+- Because of this, we needed to give an ordering for the VMs to connect to each other. It's very simple.
+- VM B listens on port X, VM A connects on X. VM C listens on port Y, VM B connects on port Y. Finally, VM A listens on port Z, and VM C connects on port Z.
 
+- The message queue is handled by two separate threads in each VM process, one for each open socket. Since the message queue runs independently of the VM clock/logical clock, messages are read from the sockets and emplaced on the queue as soon as possible.
+- The main thread in every VM handles the rest of the logic (i.e., the logical clock, clock ticks, etc.)
