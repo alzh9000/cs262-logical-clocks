@@ -19,5 +19,8 @@
 - VM B listens on port X, VM A connects on X. VM C listens on port Y, VM B connects on port Y. Finally, VM A listens on port Z, and VM C connects on port Z.
 - In order to get around any race conditions from one VM connecting in the wrong order (e.g., if B tries to connect to C before C starts listening), we sleep if the connection fails and try again after 100ms.
 
-- The message queue is handled by two separate threads in each VM process, one for each open socket. Since the message queue runs independently of the VM clock/logical clock, messages are read from the sockets and emplaced on the queue as soon as possible. This gives us an easy separation of concerns.
-- The main thread in every VM handles the rest of the logic (i.e., the logical clock, clock ticks, etc.)
+- The message queue is handled by two separate threads in each VM process, one for each open socket. 
+- Since the message queue runs independently of the VM clock/logical clock, messages are read from the sockets and emplaced on the queue as soon as possible. This gives us an easy separation of concerns.
+- It doesn't matter which side connnected or listened, since once a connection is established, reading/writing to a socket can be done by either side.
+- The main thread in every VM handles the rest of the logic (i.e., the logical clock, clock ticks, etc.). 
+- Consequently, the main thread also writes to both sockets randomly (which is fine, since sockets have two buffers internally for reading/writing respectively. Reading from a socket can be done while writing).
