@@ -17,6 +17,7 @@
 - By the nature of sockets, one end needs to be listening *before* a connection is initiated, while the other side needs to connect *after* the other end has started listening.
 - Because of this, we needed to give an ordering for the VMs to connect to each other. It's very simple.
 - VM B listens on port X, VM A connects on X. VM C listens on port Y, VM B connects on port Y. Finally, VM A listens on port Z, and VM C connects on port Z.
+- In order to get around any race conditions from one VM connecting in the wrong order (e.g., if B tries to connect to C before C starts listening), we sleep if the connection fails and try again after 100ms.
 
-- The message queue is handled by two separate threads in each VM process, one for each open socket. Since the message queue runs independently of the VM clock/logical clock, messages are read from the sockets and emplaced on the queue as soon as possible.
+- The message queue is handled by two separate threads in each VM process, one for each open socket. Since the message queue runs independently of the VM clock/logical clock, messages are read from the sockets and emplaced on the queue as soon as possible. This gives us an easy separation of concerns.
 - The main thread in every VM handles the rest of the logic (i.e., the logical clock, clock ticks, etc.)
