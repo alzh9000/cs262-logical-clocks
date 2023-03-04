@@ -10,6 +10,6 @@
 - Otherwise, everything went smoothly. Compared to the first project, the details here are more well-defined, so there's less need for any rewrites. It's also all of our own code, so no need to dive into documentation beyond the pages on Python sockets.
 
 # Day 3: 3-2
-- Project is officially finished, besides unit testing.
+- Project is officially finished, besides unit testing. Added comments for clarity; otherwise, everything is done.
 
 
