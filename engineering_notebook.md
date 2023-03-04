@@ -1,85 +1,15 @@
-# Week 1: 2/1/23 to 2/5/23:
-This week, we focused on the brainstorming, planning, and design for implementing our wire protocol and chat app. We learned more about the tools and concepts we'll need to use, decided to use C++, and planned what features and structure we want to implement for our chat app and how. Next week, we'll focus more on actually implementing our wire protocol and chat app in C++ code.
+# Engineering Notebook
+# Day 1: 2-27
+- Preface: We wrote our last project in C++, which was good for writing our own code but wasn't good for linking gRPC and running it, since we had to deal with cmake and incomplete/non-existent documentation.
+- Although we aren't using any libraries this time, we decided to write the project in Python since Albert and Dean aren't as familiar with C++ and this is a shorter term project (much smaller code size as well)
+- This day, we just got familiar with sockets and sketched out exactly what it was we needed to do for the project (since some of the details weren't so clear).
+- We decided to have three peers connect to each other using sockets (using a pre-defined ordering and ports), with threads designated to reading from the sockets on each VM, otherwise nothing too special. All the other details were essentially decided by the project spec, so there's not much to note there.
 
-* Learn more about sockets and how they work: we watched online tutorials and read documentation
-* Experiment with sockets in Python and C++ to compare user experience in each language: we discovered both languages provided a solid enough experience, and there were plenty of resources for both languages. We used boilerplate code from https://www.geeksforgeeks.org/socket-programming-cc/ to get started with sockets in C++ and play around with how we can send different types of data over a socket.
-* Learn more about wire protocols and how they work: we watched online tutorials and read documentation
-* Plan out how we want to implement our wire protocol: we reviewed lecture recordings to better understand wire protocols and determine which bytes should be allocated for what information (version number, operation type, username, etc.) in our wire protocol.
-* We did some brainstorming about how we wanted to build out the chat app features for this project:
-  * We decided to not implement a GUI for our chat app because we thought that would be too time demanding and could lead to more bugs or unnecessary complexity with out code. We wanted to focus on the distributed systems and wire protocol aspect of a chat app, not worry too much about its appearance, so we have planning to just build out a simple CLI (command-line interface) for our chat app that takes in user input and outputs messages in the same command line.
-  * We decided to not implement encryption for messages or password security for accounts for our chat app because we thought that would be too time demanding and could lead to more bugs or unnecessary complexity with out code. Instead of logging in with a password, users would log into an account just by selecting that accounts username because this is simpler and cleaner to implement, and also doesn't detract from learning about the distributed systems and wire protocol aspect. 
-  * Similarly, we decided to focus on just implementing a basic chat app that only allows users to send text messages to each other and just fulfills the requirements given in the Design Specification on Canvas, and not worry about implementing other features like group chats, read receipts, etc., because we thought those would be too time demanding and could lead to more bugs or unnecessary complexity with out code. Our primary focus is on building out the distributed systems and wire protocol aspect in a safe, well-documented, and well-tested manner, so we'd rather spend more time making sure that code is well-written, commented, tested, etc. than build out other features.
-* We decided to use a client-server model for our wire protocol because that matches what we've learned in class and fits well for building a simple chat app. Each user will need to run a client that then connects to and communicates with a single server that then relays information to other clients. So, if user Alice wants to chat with user Bob, Alice's client would send a message to the server (using our wire protocol), and the server would then send the corresponding message to Bob's client (using our wire protocol), enabling Alice to chat with Bob.
-* We decided to use C++ because it works well with our plans for implementing the wire protocol, and we thought that using C++ would be more "realistic" than using Python because in the real world, distributed systems are more often implemented in C++ than in Python. For example, at Google, C++ is much more widely used than Python for distributed systems. This way, by using C++ for our project, we thought we would get a more realistic and practical experience about how distributed systems are implemented in the real world (which often uses C++). 
+# Day 2: 3-1
+- We basically finished the server code this day. There were some issues getting the ordering to work correctly, involving a while True loop that would repeatedly attempt to connect the servers to each other if a connection failed (if, for example, one of the forked processes ran in the wrong order, this would lead to a failed connection).
+- Otherwise, everything went smoothly. Compared to the first project, the details here are more well-defined, so there's less need for any rewrites. It's also all of our own code, so no need to dive into documentation beyond the pages on Python sockets.
 
-# Week 2: 2/6/23 to 2/12/23:
-
-This week, we continued to work on implementing our wire protocol using sockets in C++. At the end of this week, we had built a working chat app that allows users to send messages to each other over a socket using our own wire protocol (implemented part 1 of the assignment). Looking back, we did most of our total engineering and coding work this week.
-
-* We reviewed the boilerplate code we had used from https://www.geeksforgeeks.org/socket-programming-cc/ to make sure we understood it and to see how we could modify it to fit our needs.
-* We built out a simple Makefile to build our project. We decided to do this so that we can easily build our project. This Makefile was also helpful for running our tests later.
-* ## Wire Protocol Design:
-  * We worked on defining our wire protocol further by creating a detailed breakdown of what information we want to send over the socket (for both client to server and server to client) and how that information will be represented in bytes. Then, we implemented this in code:
-      * For the client to server, we wrote our wire protocol and other code relating to communication from the client to the server in `message.hh`. The structure of our wire protocol here is:
-          ```
-          // Version: 4 bits (currently 1)
-          // Operation: 4 bits
-          // Both are packed into one field; access using get_operation() and get_version()
-          uint8_t version_and_operation;
-          // Length: next 16 bits. Number of valid bytes in the data to interpret
-          uint16_t length;
-          // Username is at max 32 characters long
-          std::array<char, 32> username;
-          // Variable data field: used for recipient, query, deleted account, etc.
-          std::array<char, 32> variable_field;
-          // Data field: any extra data needed for the message. Size specified by the size field.
-          char data[];
-          ```
-      * For the server to client, we wrote our wire protocol and other code relating to communication from the server to the client in `response.hh`. The structure of our wire protocol here is:
-          ```
-          // Leftmost 4 bits are version, rightmost 4 bits are response type.
-          uint8_t version_and_type;
-          // Length of data in bytes. May come in separate packets.
-          uint32_t length;
-          // We reasonably expect there's no reason to send more than 2^32 - 1 bytes
-          // of data given the operations we have to support (text-based)
-          char data[];
-          ```
-      * We decided to create the wire protocol this way because is both concise and fully functional while allowing flexibility. For instance, the version number and operation type are packed into a single byte to save space, while the length field allows the server to determine the length of the message and to know when it has received all the data it needs. The username and variable field are both arrays of characters that can hold up to 32 characters, and the variable field can be flexibly used depending on the operation. Finally, the data field can hold any extra data needed for the message. Note that the wire protocol for the server to client direction is simpler because the server basically just needs to send data to the client after having already performed the operation, while the client needs to tell the server more info (such as what operation to perform and the parameters for that operation).
-
-* ## Functionality:
-  * We built out the all functionality specified in the Design Specification on Canvas. We handle the logic for these functions/operations in `server.cpp`, while `client.cpp` is responsible for handling the user input and collecting the parameters needed to perform these operations, then sending that to the server. The decisions we made were: 
-    * Create an account. We built the "create account" function to both create the account and log in to that account. If the client wants to log out of that account, the client should disconnect. As a result, a client can only "create account" once per session, when they create account and log in, and if they want to create a different account then they need to disconnect and reconnect. We did this to simplify our code, make it easier for the user to use our app, and reduce potential bugs and unnecessary complexity.
-    * List accounts (or a subset of the accounts, by text wildcard). We implement the text wildcard filtering for listing accounts by using https://leetcode.com/problems/wildcard-matching/solutions/1001130/c-clean-and-concise-bottom-up-dp-code-with-detailed-explanation-easy-to-understand/ because it is a clean and well-tested implementation. Given an input string (s) and a pattern (p), we implement wildcard pattern matching with support for '?' and '*' where: '?' matches any single character. '\*' matches any sequence of characters (including the empty sequence). We decided to do this because, based on online research, that seems to be a popular way to implement wildcard pattern matching. 
-    * Send a message to a recipient. We decided to limit a message to 4096 characters because that's a safe, reasonable size limit.
-    * Deliver undelivered messages to a particular user. We built the "Deliver undelivered messages to a particular user" to act as "log into existing account and see missed messages" to log into that particular user, so if Client A does "Deliver undelivered messages to A", then that is how A logs back in (and sees undelivered/missed messages upon logging back in). As a result, a client can only deliver undelivered messages once per session, when they log back in, but that should be fine since while they're logged in they'll see the messages immediately. Plus, "Deliver undelivered messages to a particular user" can only be called on oneself, in the sense that you log into that existing account. We did this to simplify our code, make it easier for the user to use our app, and reduce potential bugs and unnecessary complexity.
-      * Similarly, based on this logic, a client can not call the "create account" function and "Deliver undelivered messages to a particular user" in the same session, since those both function as log-ins. 
-      * We believe that we are creatively using "create account" and "deliver undelivered" in an interesting manner to implement the "log in" functionality, and we think that this is a good design decision because then we don't need to implement a separate "log in" function, which would be redundant and unnecessary.
-    * Delete an account. If you attempt to delete an account that contains undelivered messages (meaning there are undelivered messages to this user that is about to be deleted), then those undelivered messages are also deleted. Additionally, you can only delete your own account. We did this to simplify our code, make it easier for the user to use our app, and reduce potential bugs and unnecessary complexity.
-  * The logic in this section applies to our gRPC work too, which we did the following week.
-* ## Threading:
-  * We built out multi-threading for the server in `server.cpp` to handle multiple clients connecting at the same time, with one thread per client. We also restrict each user from only being able to log in from one client, so that we can map each logged-in user to exactly one client (and its corresponding socket). We decided to do this so that the server can support multiple simultaneous connections in a simple, straightforward manner.
-  * We built out multi-threading for the client in `client.cpp` to handle both user input and listening to the server. Each client has two threads running on their machine: 1 thread that handles user input (prompting the user for what operation they want to do, then prompting for the corresponding parameters, etc.), and 1 thread that listens to the server and outputs relevant communication from the server (this thread is what shows chat messages from other uses in real time for the client, as well as checking for an errors or other information from the server). We decided to do this so that the client can receive chat messages and other information from the server simultaneously while interacting with our chat app in a simple, straightforward manner.
-  * The logic in this section applies to our gRPC work too, which we did the following week.
+# Day 3: 3-2
+- Project is officially finished, besides unit testing.
 
 
-# Week 3: 2/13/23 to 2/19/23:
-
-This week, we implemented part 2 of the assignment using gRPC. We also built out a testing framework and wrote tests in C++. We went through our code to further comment and document it. At the end of this week, we've completely finished our working chat app.
-
-* ## gRPC:
-  * We didn't notice any performance impacts when using gRPC. We expect that gRPC has much larger packets despite the efficient representation since it uses HTTP2, because we represented our information efficiently and built it directly on top of TCP.
-  * The gRPC code is considerably more complex and hard to parse and reason through, though it was easier to get working the first time compared to our wire protocol. Part of this can be attributed to the fact that we made our wire protocol before gRPC.
-  * Getting gRPC to work was much more annoying, since we had to figure out how to use cmake. Moreover, the amount of documentation online is abysmal considering its widespread usage, with many of the constructs we had to use having zero documentation at all beyond the interface (i.e., class functions). There was little or no information on thread safety, performance impacts, or the concurrency model used for gRPC.
-  * gRPC tended to get in the way more than it helped with this project, overall. Tasks that were otherwise trivial like sending out user messages through another client's connected socket needed a whole streaming interface to get set up, and this streaming interface had to be implemented through the callback interface in order to keep it open, forcing a rewrite. Details like this were not obvious given the amount of documentation, and had to be figured out through Google Groups and StackOverflow posts.
-  * In short, gRPC tries to abstract sockets away completely, which hinders tasks that should be very simple to implement, like detecting a disconnect from a client. It also has insufficient documentation for many of its features, even lacking something as simple as a guide on how to set up your own project (instead expecting you to adapt code manually from the examples in their github repo).
-  * We do expect that for larger projects, gRPC is nicer to use and set up compared to a hand-made wire protocol. The choice in language also probably affects the experience, since Go is the first-class language for gRPC. However, this does not change our negative opinion of gRPC as a whole.
-* ## Testing Design:
-  * We decided to build out a testing framework and write tests in C++ to test our chat app because it is important to ensure that our chat app is reliable and performs as expected. Writing tests would help catch bugs and issues before they became bigger problems, plus it  would ensure that new code changes don't break existing functionality.
-    * We wrote a collection of unit tests that test the functionality of every operation in the Design Specification on Canvas for our server and client, for both gRPC and our custom wire protocol. We decided to write unit tests for each operation because that way we can individually test the functionality of each single operation (without different operations interfering with each other), and it is also a good way to test the functionality of the server and client as a whole.
-    * For our custom wire protocol: Our testing is all done in `test.cpp`. To run our tests, simply run `make test` in the root directory of the project. This will compile the tests and run them. If the tests all succeed, it will output `Tests succeeded`, otherwise the output will stop at the last test that succeeded (and error out at the first test that failed). You may see a line that looks something like `/bin/sh: line 1:  7896 Terminated: 15          ./server` - this is because the server is killed after the tests are run, and this is expected behavior. 
-
-    * For gRPC: Our testing is all done in `grpc/client.cc` (primarily at the bottom of the file, in `run_tests()`). To run our tests, simply follow the instructions in the Setup and Run section earlier, and when prompted, type 'y' to and run the tests. If the tests all succeed, it will output `All tests under client 2 succeeded` and `All tests under client 1 succeeded`, otherwise the output will stop at the first test that failed for each client.
-
-    * We also personally tested our server and client by running them on two different machines on the same network, for both gRPC and our custom wire protocol. We were able to create accounts, send messages, deliver undelivered messages, list accounts, and delete accounts, all as expected. We also verified that the server and client were able to handle multiple clients at once, and that the server and client were able to handle disconnections (if the server or clients are unexpectedly killed).
-* Commenting and documenting our code has been essential to ensure that it's easy to understand and maintain. We wanted to have good documentation so it easier for others to understand our code and potentially contribute to it, plus, personally, it has been really helpful for us remembering how our code works when we were working on it throughout these weeks.
