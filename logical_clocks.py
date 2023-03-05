@@ -205,7 +205,7 @@ def process_events(
         )
     else:
         # If there is no message in the queue, the virtual machine should generate a random number in the range of 1-10
-        event = random.randint(1, 10)
+        event = random.randint(1, 4)
         # if the value is 1, send to one of the other machines a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time
         if event == 1:
             # Send the desired message to next machine in the loop of machines
