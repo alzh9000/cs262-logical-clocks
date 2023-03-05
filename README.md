@@ -1,13 +1,13 @@
 # Usage
 python logical_clocks.py 
 You don't need to use pip to install any packages.
+After two minutes have elapsed, the simulation will stop running automatically. Press Ctrl+C to shut it down.
 
 # Spec
 Scale Models and Logical Clocks
 Due Sunday by 11:59pm Points 20 Submitting a website url or a file upload Available after Feb 27 at 2pm
 In this assignment, you and your partner will build a model of a small, asynchronous distributed system. It will run on a single machine, but you will model multiple machines running at different speeds. 
 Multiple processes connecting using sockets
-
 
 
 And you will build a logical clock for each of the model machines.
@@ -92,27 +92,6 @@ We developed a simple client/server chat application with the following function
 More details about the specifics of each function can be found in our Engineering Notebook's Functionality section [`engineering_notebook.md#functionality`](engineering_notebook.md#functionality). 
 
 There are two versions of our chat app: one that uses a custom wire protocol, and one that uses gRPC. The custom wire protocol app is in the root directory of this repository, and the gRPC version is in the `grpc` directory.
-
-
-# Setup and Run
-## Custom wire protocol
-1. Edit `client.cpp` to have the IP address of the server, specifically where it says `// Please change this to the IP address of the server` near the top of the file. You need to use the IPv4 address in your server computer's settings, not the public IP address provided by https://www.whatismyip.com/ or other websites. 
-   1. For MacOS, the IPv4 address is in Settings > Network > Advanced > TCP/IP. 
-   2. For Windows, open Settings -> Network & Internet -> Your Wi-Fi Network. Under Properties, look for "IPv4 address" to find your local IP address. Both the client and server must be on the same network.
-2. For the server computer, run `make`, then run `./server` from the root directory of this repository. 
-3. For the client computer, run `make`, then run `./client` from the root directory of this repository. 
-4. To disconnect the client from the server (which is how you log out of that account), press `Ctrl+C` in the client terminal. To shut down the server, press `Ctrl+C` in the server terminal.
-## gRPC
-1. Edit `grpc/client.cc` to have the IP address of the server, specifically where it says `// Please change this to include the IP address of the server`. You need to use the IPv4 address in your server computer's settings, not the public IP address provided by https://www.whatismyip.com/ or other websites. 
-   1. For MacOS, the IPv4 address is in Settings > Network > Advanced > TCP/IP. 
-   2. For Windows, open Settings -> Network & Internet -> Your Wi-Fi Network. Under Properties, look for "IPv4 address" to find your local IP address. Both the client and server must be on the same network.
-2. On both the client and server computers, you need to install gRPC. Follow the instructions in the [gRPC Quick Start Guide](https://grpc.io/docs/languages/cpp/quickstart/) to install gRPC. 
-3. Then, do `cd grpc` to go to the grpc directory in our project folder, then run `make` to compile the gRPC code.
-4. Then, do `cd cmake/build` from the grpc directory to go to the build directory, then run `cmake ../..`.
-5. Then, run `make` again in that directory (the `grpc/cmake/build` directory)
-6. For the server computer, run `./server` from the `grpc/cmake/build` directory of this repository. 
-7. For the client computer, run `./client` from the `grpc/cmake/build` directory of this repository. When prompted, type `n` to user the client normally rather than run the tests.
-8. To disconnect the client from the server (which is how you log out of that account), press `Ctrl+C` in the client terminal. To shut down the server, press `Ctrl+C` in the server terminal.
 
 # Documentation
 

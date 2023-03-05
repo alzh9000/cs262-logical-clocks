@@ -119,6 +119,7 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
             f"virtual_machine_{from_id}_logs/vm{from_id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
             "w",
         )
+        print(COLORS[from_id] + f"Virtual machine {from_id} has clock rate {clock_rate}")
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
         print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
@@ -251,7 +252,7 @@ if __name__ == "__main__":
     experiment_start_time = time.time()
 
     # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
-    random.seed(100)
+    random.seed(datetime.now().timestamp())
 
     # Create a process for each virtual machine
     processes = []
@@ -259,7 +260,7 @@ if __name__ == "__main__":
         processes.append(
             multiprocessing.Process(
                 target=virtual_machine,
-                args=(id, experiment_start_time, 6),
+                args=(id, experiment_start_time, random.randint(1, 6)),
             )
         )
 
