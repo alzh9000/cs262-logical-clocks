@@ -14,7 +14,7 @@
 - Project is officially finished, besides unit testing. For unit testing, we are mostly concerned with making sure the logical clocks work correctly and sync up.
 
 # Design
-- There are only two interesting parts of the design, involving the ordering of the VMs connections and the message queue.
+- There are primarily two interesting parts of the design, involving the ordering of the VMs connections and the message queue.
 - By the nature of sockets, one end needs to be listening *before* a connection is initiated, while the other side needs to connect *after* the other end has started listening.
 - Because of this, we needed to give a simple ordering for the VMs to connect to each other:
     - VM B listens on port X, VM A connects on X. VM C listens on port Y, VM B connects on port Y. Finally, VM A listens on port Z, and VM C connects on port Z.
