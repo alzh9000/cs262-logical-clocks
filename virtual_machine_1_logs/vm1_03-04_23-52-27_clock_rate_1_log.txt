@@ -1,0 +1,7 @@
+Internal event occurred at global UTC time (gotten from the system) 03-05_04-52-32.250164 with logical clock time 1.
+Received message 2 0 at global UTC time (gotten from the system) 03-05_04-52-33.253323 with logical clock time 2. The length of the message queue remaining is 0
+Sent message 1 2 at global UTC time (gotten from the system) 03-05_04-52-34.258825 with logical clock time 3.
+Sent message 1 3 at global UTC time (gotten from the system) 03-05_04-52-34.258943 with logical clock time 4.
+Sent message 1 4 at global UTC time (gotten from the system) 03-05_04-52-35.263677 with logical clock time 5.
+Internal event occurred at global UTC time (gotten from the system) 03-05_04-52-36.266378 with logical clock time 6.
+Received message 2 5 at global UTC time (gotten from the system) 03-05_04-52-37.268506 with logical clock time 7. The length of the message queue remaining is 0

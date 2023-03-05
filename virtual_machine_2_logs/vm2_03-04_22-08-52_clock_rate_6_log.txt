@@ -1,0 +1,3 @@
+Sent message 2 0 at global UTC time (gotten from the system) 03-05_03-08-57.563142 with logical clock time 1.
+Sent message 2 1 at global UTC time (gotten from the system) 03-05_03-08-57.564822 with logical clock time 2.
+Sent message 2 2 at global UTC time (gotten from the system) 03-05_03-08-57.734630 with logical clock time 3.

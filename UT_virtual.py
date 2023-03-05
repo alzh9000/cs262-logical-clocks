@@ -6,6 +6,8 @@ import random
 import os
 import multiprocessing
 from datetime import datetime
+import unittest
+from unittest.mock import MagicMock
 
 # Define terminal color codes to show which virtual machine/process is printing to the terminal
 COLORS = {
@@ -154,9 +156,16 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
     time_so_far = time.time() - experiment_start_time
     while time_so_far < 120:
         # On each clock cycle, perform functionality and update logical clock.
+        tmp = logical_clock
         logical_clock = process_events(
             sockets_dict, logical_clock, log_file, from_id, clock_rate, message_queue
         )
+        # Check that the logical clock was incremental
+    
+        assert (tmp - logical_clock) != 1
+        # Check that the logical clock was incremented at least once
+        assert logical_clock > 0
+
 
         time_so_far = time.time() - experiment_start_time
         # Used for debugging and testing purposes. TODO: can remove later
@@ -191,7 +200,7 @@ def process_events(
 
     # On each clock cycle, if there is a message in the message queue for the machine
     if not message_queue.empty():
-        #f The virtual machine should take one message off the queue
+        # The virtual machine should take one message off the queue
         msg = message_queue.get()
         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
         sender_clock = int(msg.split()[1])
@@ -245,28 +254,32 @@ def process_events(
     # Return the updated logical clock value
     return logical_clock
 
+class TestVirtualMachine(unittest.TestCase):
+    def test_virtual_machine(self):
 
-if __name__ == "__main__":
-    # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
-    experiment_start_time = time.time()
+        # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
+        experiment_start_time = time.time()
 
-    # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
-    random.seed(100)
+        # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
+        random.seed(100)
 
-    # Create a process for each virtual machine
-    processes = []
-    for id in range(3):
-        processes.append(
-            multiprocessing.Process(
-                target=virtual_machine,
-                args=(id, experiment_start_time, 6),
-            )
-        )
+        # Create a process for each virtual machine
+        # Test different clock rates
+        for j in range(1,6):
+            processes = []
+            for id in range(3):
+                processes.append(
+                    multiprocessing.Process(
+                        target=virtual_machine,
+                        args=(id, experiment_start_time, j),
+                    )
+                )
 
-    # Start each process
-    for process in processes:
-        process.start()
+            # Start each process
+            for process in processes:
+                process.start()
+            
 
-    # Wait for each process to finish
-    for process in processes:
-        process.join()
+            # Wait for each process to finish
+            for process in processes:
+                process.join()

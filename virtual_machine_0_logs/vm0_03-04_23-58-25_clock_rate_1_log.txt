@@ -1,0 +1,5 @@
+Internal event occurred at global UTC time (gotten from the system) 03-05_04-58-30.520867 with logical clock time 1.
+Sent message 0 1 at global UTC time (gotten from the system) 03-05_04-58-31.526174 with logical clock time 2.
+Internal event occurred at global UTC time (gotten from the system) 03-05_04-58-32.528816 with logical clock time 3.
+Sent message 0 3 at global UTC time (gotten from the system) 03-05_04-58-33.534173 with logical clock time 4.
+Internal event occurred at global UTC time (gotten from the system) 03-05_04-58-34.538016 with logical clock time 5.

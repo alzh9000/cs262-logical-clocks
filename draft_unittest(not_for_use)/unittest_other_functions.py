@@ -6,6 +6,7 @@ import random
 import os
 import multiprocessing
 from datetime import datetime
+import unittest
 
 # Define terminal color codes to show which virtual machine/process is printing to the terminal
 COLORS = {
@@ -56,6 +57,7 @@ def server(port, message_queue, from_id, sockets_dict):
 
         # Close the connection
         conn.close()
+
 
 
 # Connects virtual machine with from_id to the specified port for virtual machine with to_id
@@ -165,6 +167,7 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
         #     f"It has been {time_so_far} seconds so far",
         #     "" + RESET,
         # )
+    return "FINISH"
 
 
 # Define a function to send a message to another virtual machine
@@ -191,7 +194,7 @@ def process_events(
 
     # On each clock cycle, if there is a message in the message queue for the machine
     if not message_queue.empty():
-        #f The virtual machine should take one message off the queue
+        # The virtual machine should take one message off the queue
         msg = message_queue.get()
         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
         sender_clock = int(msg.split()[1])
