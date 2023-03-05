@@ -1,7 +1,7 @@
 # Engineering Notebook
 # Day 1: 2-27
 - Preface: We wrote our last project in C++, which was good for writing our own code but wasn't good for linking gRPC and running it, since we had to deal with cmake and incomplete/non-existent documentation.
-- Although we aren't using any libraries this time, we decided to write the project in Python since Albert and Dean aren't as familiar with C++ and this is a shorter term project (much smaller code size as well)
+- Although we aren't using any libraries this time, we decided to write the project in Python since Albert and Dean aren't as familiar with C++ and this is a shorter term project (much smaller code size as well). We also wanted to see how using Python compared to using C++, and overall we liked how Python's strengths as a language in general (concise, readable, fast to write, etc.) were reflected in the project.
 - This day, we just got familiar with sockets in Python and sketched out exactly what it was we needed to do for the project (since some of the details weren't so clear).
 - We decided to have three peers connect to each other using sockets (using a pre-defined ordering and ports), with threads designated to reading from the sockets on each VM, otherwise nothing too special. All the other details were essentially decided by the project spec, so there's not much to note there.
 
