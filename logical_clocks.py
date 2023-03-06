@@ -119,6 +119,7 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
             f"virtual_machine_{from_id}_logs/vm{from_id}_{experiment_start_time_string}_clock_rate_{clock_rate}_log.txt",
             "w",
         )
+        print(COLORS[from_id] + f"Virtual machine {from_id} has clock rate {clock_rate}")
     # If there was an error creating the log file, print an error message and return
     except FileNotFoundError as e:
         print(COLORS[from_id] + f"File Error: {e}", "" + RESET)
@@ -204,7 +205,7 @@ def process_events(
         )
     else:
         # If there is no message in the queue, the virtual machine should generate a random number in the range of 1-10
-        event = random.randint(1, 10)
+        event = random.randint(1, 4)
         # if the value is 1, send to one of the other machines a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time
         if event == 1:
             # Send the desired message to next machine in the loop of machines
@@ -251,7 +252,7 @@ if __name__ == "__main__":
     experiment_start_time = time.time()
 
     # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
-    random.seed(100)
+    random.seed(datetime.now().timestamp())
 
     # Create a process for each virtual machine
     processes = []
@@ -259,7 +260,7 @@ if __name__ == "__main__":
         processes.append(
             multiprocessing.Process(
                 target=virtual_machine,
-                args=(id, experiment_start_time, 6),
+                args=(id, experiment_start_time, random.randint(1, 6)),
             )
         )
 
