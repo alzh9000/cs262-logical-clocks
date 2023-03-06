@@ -16,6 +16,8 @@
 # Day 4: 3-3
 - Unit test was performed on all individual functions in the program, namely, client, server, process_events, send_message, virtual_machine.
 - Moreover, clock value plot helper function (graph_log.py) is implemented to help visualize and support our upcoming interpretation of result. An example is shown below
+
+
 ![logical_clock_value_jump.png](logical_clock_value_jump.png)
 
 
