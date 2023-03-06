@@ -18,7 +18,6 @@ class TestVM_client_server(unittest.TestCase):
         self.port = 50001
 
     def test_server(self):
-        print("In test_server")
         server_thread = threading.Thread(target=server, args=(self.port, self.message_queue, self.from_id, self.sockets_dict))
         server_thread.start()
 
@@ -43,7 +42,6 @@ class TestVM_client_server(unittest.TestCase):
         server_thread.join()
 
     def test_client(self):
-        print("In test_client")
         # Start the server thread to listen for the client connection
         server_thread = threading.Thread(target=server, args=(self.port, self.message_queue, self.to_id, self.sockets_dict))
         server_thread.start()
@@ -70,7 +68,7 @@ class TestVM_client_server(unittest.TestCase):
 
         # Check that the message was added to the message queue
         self.assertEqual(self.message_queue.qsize(), 0)
-        print("assert passed")
+        print("test passed")
         # self.assertEqual(self.message_queue.get(), message)
         # print("assert statement passed")
 

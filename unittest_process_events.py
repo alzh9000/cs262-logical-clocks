@@ -1,5 +1,3 @@
-# To run: python3 -m unittest unittest_process_events.py
-
 import io
 import queue
 import unittest

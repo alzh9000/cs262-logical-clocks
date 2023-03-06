@@ -13,6 +13,12 @@
 # Day 3: 3-2
 - Project is officially finished, besides unit testing. For unit testing, we are mostly concerned with making sure the logical clocks work correctly and sync up.
 
+# Day 4: 3-3
+- Unit test was performed on all individual functions in the program, namely, client, server, process_events, send_message, virtual_machine.
+- Moreover, clock value plot helper function (graph_log.py) is implemented to help visualize and support our upcoming interpretation of result. An example is shown below
+![logical_clock_value_jump.png](logical_clock_value_jump.png)
+
+
 # Design
 - There are primarily two interesting parts of the design, involving the ordering of the VMs connections and the message queue.
 - By the nature of sockets, one end needs to be listening *before* a connection is initiated, while the other side needs to connect *after* the other end has started listening.
