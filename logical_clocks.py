@@ -48,7 +48,7 @@ def server(port, message_queue, from_id, sockets_dict):
                 print("breaking connection")
                 break
 
-            # Used for debugging and testing purposes. TODO: can remove later
+            # Used for debugging and testing purposes. 
             print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
             # Add the message to the message queue
@@ -91,7 +91,7 @@ def client(to_id, message_queue, from_id, sockets_dict):
             print("breaking connection")
             break
 
-        # Used for debugging and testing purposes. TODO: can remove later
+        # Used for debugging and testing purposes.
         print(COLORS[from_id] + "Received from client:", data, "" + RESET)
 
         # Add the message to the message queue
@@ -128,7 +128,6 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
     # Create a message queue to store messages from other virtual machines
     message_queue = queue.Queue()
 
-    # TODO: @gianni @dean do we need to add mutexes or locks for when we're adding sockets to the dictionary in our threads? since client1 and client2 threads can both access at same time
     sockets_dict = {}
 
     # Start the server thread
@@ -151,7 +150,7 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
     time.sleep(3)
 
     # Main loop for the virtual machine
-    # Run for 120 seconds. TODO: we could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
+    # Run for 120 seconds. We could change this if we want, we're doing 120 seconds to be safe because Canvas says "run the scale model at least 5 times for at least one minute each time. "
     time_so_far = time.time() - experiment_start_time
     while time_so_far < 120:
         # On each clock cycle, perform functionality and update logical clock.
@@ -160,13 +159,6 @@ def virtual_machine(from_id, experiment_start_time, clock_rate):
         )
 
         time_so_far = time.time() - experiment_start_time
-        # Used for debugging and testing purposes. TODO: can remove later
-        # print(
-        #     COLORS[from_id] + "",
-        #     f"It has been {time_so_far} seconds so far",
-        #     "" + RESET,
-        # )
-
 
 # Define a function to send a message to another virtual machine
 def send_message(sock, msg, logical_clock, log_file):
@@ -197,7 +189,6 @@ def process_events(
         # Update the local logical clock value to be the maximum between its current value and the sender's logical clock value
         sender_clock = int(msg.split()[1])
         logical_clock = max(logical_clock, sender_clock) + 1
-        # TODO: @gianni @angelloghernan for ur analysis, it might be easier to log to a CSV or parse this text output. it's not required by spec but might be easier for you
         # Write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time.
         global_time_string = datetime.utcnow().strftime("%m-%d_%H-%M-%S.%f")
         log_file.write(
@@ -238,7 +229,7 @@ def process_events(
                 f"Internal event occurred at global UTC time (gotten from the system) {global_time_string} with logical clock time {logical_clock}.\n"
             )
 
-    # TODO: check this works, @gianni u'll see this in ur analysis. I think it works though
+    # Sleep for the amount of time needed to maintain the desired clock rate
     end_time = time.time()
     elapsed_time = end_time - start_time
     time.sleep((1 / clock_rate) - elapsed_time)
@@ -251,7 +242,7 @@ if __name__ == "__main__":
     # Used to name the log files for this run that is consistent between the 3 processes (virtual machines)
     experiment_start_time = time.time()
 
-    # TODO: can remove this later if want to. Keep right now for consistency when testing. Should change this when we do "run the scale model at least 5 times for at least one minute each time. " to get different results we can talk about in the report.
+    # Can be used for consistency when testing. 
     random.seed(datetime.now().timestamp())
 
     # Create a process for each virtual machine

@@ -19,4 +19,4 @@ To run the unit test, simply run the command
 
 python3 -m unittest unittest_FUNCTION_TO_BE_TESTED.py
     
-There are four files to run the unit test. The test is conducted on presumed input spaces without much testing on non-benign inputs since much functions are embedded for use in parent functions and the values, such as id, is typically fixed, and there is of limited significance to test most of these inputs. More test cases can be added simply by adding more test functions under the test class.
+There are four files to run the unit test. The test is conducted on presumed input spaces without much testing on non-benign/malicious inputs since our functions are embedded for use in parent functions and the values, such as id, is typically fixed, and there is of limited significance to test most of these inputs. More test cases can be added simply by adding more test functions under the test class.
