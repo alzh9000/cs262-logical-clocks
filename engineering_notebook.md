@@ -19,6 +19,8 @@
 
 # Day 4: 3-3
 - Unit test was performed on all individual functions in the program, namely, client, server, process_events, send_message, virtual_machine.
+- We wrote these unit tests to make sure that the functions are working as intended. We also ran our code as a whole to make sure that the entire program is working as intended.
+- Instructions for how to run the unit tests are in the `README.md` file.
 - Moreover, clock value plot helper function (graph_log.py) is implemented to help visualize and support our upcoming interpretation of result. An example is shown below
 
 
