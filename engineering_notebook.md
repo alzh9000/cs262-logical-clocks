@@ -8,10 +8,14 @@
 # Day 2: 3-1
 - We reviewed the content from class about logical clocks. 
 - We basically finished the server code this day. There were some issues getting the ordering to work correctly, involving a while True loop that would repeatedly attempt to connect the servers to each other if a connection failed (if, for example, one of the forked processes ran in the wrong order, this would lead to a failed connection).
+- We added color-coding to the terminal output to make it easier to read and understand which VM is sending/receiving messages. This was helpful for checking our code and debugging, especially for network related code.
 - Otherwise, everything went smoothly. Compared to the first project, the details here are more well-defined, so there's less need for any rewrites. It's also all of our own code, so no need to dive into documentation beyond the pages on Python sockets and threads.
 
 # Day 3: 3-2
 - Project is officially finished, besides unit testing. For unit testing, we are mostly concerned with making sure the logical clocks work correctly and sync up.
+- We also added a random seed to the program, so that we can run the program multiple times and get the same results. This is useful for testing and debugging. 
+- We used this random seed to test our program with different clock rates for each VM. We found that the logical clocks were able to sync up correctly, even with different clock rates, as desired.
+- We then studied and analyzed our program and its logs to do the analysis outlined in the specification, and put it in the below Observations section.
 
 # Day 4: 3-3
 - Unit test was performed on all individual functions in the program, namely, client, server, process_events, send_message, virtual_machine.
